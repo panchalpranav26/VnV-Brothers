@@ -77,45 +77,68 @@ export function initContactForm() {
         const url = '/.netlify/functions/submit-form';
         console.debug('[Network] Fetching:', url);
 
+        console.debug('[Network] Full URL:', `${window.location.origin}${url}`);
+
         try {
+            console.time('[Fetch Timer]');
             const response = await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
+            console.timeEnd('[Fetch Timer]');
 
-            console.debug('[Network] Raw response:', response);
-            let resData = {};
+            console.debug('[Network] Response Status:', response.status, response.statusText);
+
+            // Log response headers
+            const headersObj = {};
+            response.headers.forEach((v, k) => headersObj[k] = v);
+            console.debug('[Network] Response Headers:', headersObj);
+
+            let resData = null;
+
+            // ✅ If not JSON, log raw body to show Netlify error page
+            const contentType = response.headers.get('content-type');
+            console.debug('[Network] Content-Type:', contentType);
+
+            if (!contentType || !contentType.includes('application/json')) {
+                const rawText = await response.clone().text();
+                console.error('[Network] ❌ Non-JSON response received. Raw body:', rawText);
+                statusMessage.textContent = `❌ Server returned non-JSON response (${response.status}).`;
+                statusMessage.style.color = 'red';
+                return;
+            }
 
             try {
                 resData = await response.json();
                 console.debug('[Network] Parsed JSON:', resData);
             } catch (jsonErr) {
-                console.error('[Contact Form] Failed to parse JSON response:', jsonErr);
+                console.error('[Contact Form] ❌ JSON.parse failed:', jsonErr);
+                return;
             }
 
             if (response.ok && resData.ok) {
-                console.info('[Success] Form submitted successfully ✔️');
+                console.info('[Success] ✅ Form submitted successfully');
                 statusMessage.textContent = '✅ Message sent! Check your email for confirmation.';
                 statusMessage.style.color = 'var(--teal-400)';
                 form.reset();
 
-                // Reset styles on success
                 requiredFields.forEach(id => {
                     document.getElementById(id).style.border = "";
                 });
 
             } else {
-                console.warn('[Failure] Server returned error:', resData);
-                statusMessage.textContent = `❌ Failed: ${resData.error ?? 'Unknown server error'}`;
+                console.warn('[Failure] ⚠️ Server returned error:', resData);
+                statusMessage.textContent = `❌ Failed: ${resData?.error ?? 'Unknown server error'}`;
                 statusMessage.style.color = 'red';
             }
 
         } catch (error) {
-            console.error('[Network] Fetch threw an exception:', error);
+            console.error('[Network] ❌ Fetch exception thrown:', error);
             statusMessage.textContent = '❌ Network error. Please try again later.';
             statusMessage.style.color = 'red';
         }
+
 
         // Re-enable button
         submitBtn.disabled = false;
