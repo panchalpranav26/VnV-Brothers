@@ -1,0 +1,99 @@
+/*
+ * FILE: assets/css/components/icons.css
+ * ROLE: Standardize icon sizes, alignment, colors, and usage across the site.
+ * WORKS WITH: Phosphor Icons, Font Awesome, Lucide, Heroicons, SVG <img>, <i>, <span>
+ * HOW TO USE: Add class to icons: .icon-sm .icon-md .icon-lg .icon-xl or .icon-inline
+ */
+
+/* --------------------------------------------
+   Base Icon Style (applies to <i>, <svg>, <img>)
+   -------------------------------------------- */
+.icon,
+.icon-inline,
+.icon-sm,
+.icon-md,
+.icon-lg,
+.icon-xl {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 0;
+    flex-shrink: 0;
+    color: currentColor;       /* Inherits text color */
+}
+
+/* Inline icon for <h2>, <p>, buttons */
+.icon-inline {
+    width: 1.1em;
+    height: 1.1em;
+    margin-right: 6px;
+    transform: translateY(-1px);
+}
+
+/* --------------------------------------------
+   Standard Sizes (use on <i> or <svg> or <img>)
+   -------------------------------------------- */
+.icon-sm  { width: 16px; height: 16px; }
+.icon-md  { width: 22px; height: 22px; }
+.icon-lg  { width: 32px; height: 32px; }
+.icon-xl  { width: 48px; height: 48px; }
+.icon-2xl { width: 64px; height: 64px; }
+
+/* --------------------------------------------
+   Section Header Icons (e.g., <h2>)
+   -------------------------------------------- */
+h2 .icon-inline,
+h3 .icon-inline {
+    margin-right: 8px;
+    opacity: 0.9;
+}
+
+/* --------------------------------------------
+   Icon Lists (checklist, resources, tips)
+   -------------------------------------------- */
+ul.icon-list li {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+ul.icon-list li .icon-inline {
+    margin-top: 3px; /* align with text top */
+}
+
+/* --------------------------------------------
+   Card Icons
+   -------------------------------------------- */
+.card .icon-lg,
+.card .icon-xl {
+    margin-bottom: 10px;
+    opacity: 0.95;
+}
+
+/* --------------------------------------------
+   Hover + Theming (optional)
+   -------------------------------------------- */
+.icon-hover:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+    transition: 0.2s ease;
+}
+
+/* If brand-colored icons are desired */
+.icon-brand {
+    color: var(--teal-400);
+}
+
+.icon-muted {
+    color: var(--muted);
+}
+
+/* --------------------------------------------
+   Dark Mode Handling (optional if using dark mode)
+   -------------------------------------------- */
+.dark .icon-muted {
+    color: var(--gray-400);
+}

@@ -1,0 +1,55 @@
+# ===========================================
+# Netlify Configuration for VnV Brothers LLC
+# -------------------------------------------
+# This site serves static HTML/JS/CSS + serverless Functions.
+# Functions handle form submissions (contact / consultation)
+# and optionally persist data to file or Netlify Blobs.
+# ===========================================
+
+[build]
+# No static build pipeline (plain HTML/JS site)
+command = ""
+publish = "."
+
+# ===========================================
+# Serverless Functions
+# ===========================================
+[functions]
+directory = "netlify/functions"
+node_bundler = "esbuild"
+
+# If using fs or fetch only (no Google APIs), we don't need external modules.
+# But if you plan to use Netlify's official Blobs or KV APIs, you can include them below.
+# Example:
+# external_node_modules = ["@netlify/blobs"]
+
+# ===========================================
+# Redirects / API Routing
+# ===========================================
+# Enables friendly URLs for your serverless endpoints.
+[[redirects]]
+from = "/api/*"
+to = "/.netlify/functions/:splat"
+status = 200
+
+# ===========================================
+# CORS / Headers
+# ===========================================
+[[headers]]
+for = "/*"
+[headers.values]
+Access-Control-Allow-Origin = "*"
+Access-Control-Allow-Headers = "Content-Type"
+Referrer-Policy = "no-referrer-when-downgrade"
+X-Content-Type-Options = "nosniff"
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
+
+# ===========================================
+# Environment (Optional defaults)
+# ===========================================
+# You can set defaults here OR via Netlify UI (recommended)
+# [context.production.environment]
+#   NOTIFY_TO = "info@vnvbrothers.com"
+#   NOTIFY_FROM = "no-reply@vnvbrothers.com"
+#   RESEND_API_KEY = "your_resend_api_key"

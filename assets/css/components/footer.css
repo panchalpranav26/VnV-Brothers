@@ -1,0 +1,43 @@
+/*
+ * FILE: assets/css/components/footer.css
+ * ROLE: Styles for the site-wide footer, including the responsive grid layout and links.
+ * HOW TO MODIFY: Adjust grid breakpoints and spacing.
+ * EXTENSION POINTS: Add new sections or social media icons.
+ */
+
+/* ============================================================
+   9) COMPONENT: Footer
+   - Responsive grid for columns
+   ============================================================ */
+
+.footer-grid {
+    display: grid;
+    gap: 16px;
+    padding: 24px var(--pad-x) 50px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.footer-grid h5 {
+    font-family: var(--font-serif);
+    margin: 0 0 8px;
+}
+
+.footer-grid a {
+    display: block;
+    color: var(--muted);
+    padding: 6px 0;
+}
+.footer-grid a:hover {
+    color: var(--white);
+}
+
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 520px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Basic Page Setup -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Contact V & V Brothers LLC – Book a Consultation</title>
+
+    <!-- Primary Meta Description for SEO -->
+    <meta name="description" content="Contact V & V Brothers LLC to book a consultation, ask a question, or start your journey to financial literacy and protection." />
+
+    <!-- Canonical URL (update when domain is live) -->
+    <link rel="canonical" href="https://www.example.com/pages/contact.html" />
+
+    <!-- Google Fonts: Serif (Headings) + Sans (Body/UI) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS (Modularized) -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <!-- Open Graph (Facebook/LinkedIn/iMessage link preview) -->
+    <meta property="og:title" content="Contact V & V Brothers LLC – Book a Consultation" />
+    <meta property="og:description" content="Contact V & V Brothers LLC to book a consultation, ask a question, or start your journey to financial literacy and protection." />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="/assets/img/social/preview.jpg" />
+    <meta property="og:url" content="https://www.example.com/pages/contact.html" />
+    <meta property="og:site_name" content="V & V Brothers LLC" />
+
+    <!-- Twitter Card (X preview) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contact V & V Brothers LLC – Book a Consultation" />
+    <meta name="twitter:description" content="Contact V & V Brothers LLC to book a consultation, ask a question, or start your journey to financial literacy and protection." />
+    <meta name="twitter:image" content="/assets/img/social/preview.jpg" />
+
+    <!-- JSON-LD Schema for SEO Rich Results -->
+    <script type="module">
+        import { addJSONLDSchema } from "/assets/js/components/google_seo_json.js";
+
+        window.addEventListener("DOMContentLoaded", () => {
+            addJSONLDSchema({
+                pageTitle: "Contact V & V Brothers LLC – Book a Consultation",
+                pageDescription: "Connect with V & V Brothers LLC to schedule a consultation or ask questions about financial literacy, protection, and wealth-building.",
+                pageUrl: window.location.href,
+                keywords: [
+                    "financial consultation",
+                    "life insurance guidance",
+                    "wealth building",
+                    "financial literacy",
+                    "V & V Brothers LLC",
+                    "Tracy CA"
+                ]
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+<!-- Header / Navigation -->
+<div id="site-header"></div>
+
+<!-- Main Content -->
+<main class="wrap">
+    <h1 class="page-title">Contact Us</h1>
+    <p class="lead">Ready to take control of your financial future? Fill out the form below to schedule a consultation or ask any questions you may have.</p>
+
+    <div style="max-width: 600px; margin: 40px auto 0;">
+        <form id="contact-form" style="display: grid; gap: 20px;">
+            <div class="form-group">
+                <label for="name" style="display: block; margin-bottom: 8px;">Name <span style="color: var(--teal-400);">*</span></label>
+                <input type="text" id="name" name="name" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--navy-800); color: var(--fg);">
+            </div>
+
+            <div class="form-group">
+                <label for="email" style="display: block; margin-bottom: 8px;">Email <span style="color: var(--teal-400);">*</span></label>
+                <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--navy-800); color: var(--fg);">
+            </div>
+
+            <div class="form-group">
+                <label for="phone" style="display: block; margin-bottom: 8px;">Phone (Optional)</label>
+                <input type="tel" id="phone" name="phone" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--navy-800); color: var(--fg);">
+            </div>
+
+            <div class="form-group">
+                <label for="topic" style="display: block; margin-bottom: 8px;">Topic <span style="color: var(--teal-400);">*</span></label>
+                <select id="topic" name="topic" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--navy-800); color: var(--fg);">
+                    <option value="" disabled selected>Select a topic</option>
+                    <option value="consultation">Book a Consultation</option>
+                    <option value="life_insurance">Life Insurance Guidance</option>
+                    <option value="financial_education">Financial Education Inquiry</option>
+                    <option value="other">Other Inquiry</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message" style="display: block; margin-bottom: 8px;">Message <span style="color: var(--teal-400);">*</span></label>
+                <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--navy-800); color: var(--fg);"></textarea>
+            </div>
+
+            <div id="form-status" role="alert" aria-live="polite" style="margin-top: 10px; font-weight: 600;"></div>
+
+            <button type="submit" class="cta" style="width: 100%; justify-content: center; margin-top: 10px;">Send Message</button>
+        </form>
+
+        <p style="font-size: 0.85rem; color: var(--muted); text-align: center; margin-top: 25px;">
+            Privacy Note: Your information will be used solely to respond to your inquiry and will not be shared with third parties without your explicit consent.
+        </p>
+    </div>
+</main>
+
+
+<!-- Footer -->
+<div id="site-footer"></div>
+
+<!-- Defer script loading -->
+<script type="module" src="../assets/js/core.js" defer></script>
+<script type="module" src="../assets/js/pages/contact_consult.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+/*
+ * FILE: assets/css/core.css
+ * ROLE: Defines global CSS variables (tokens), a basic reset, and core typography styles.
+ * HOW TO MODIFY: Update color codes, font stacks, and spacing variables in the :root block.
+ * EXTENSION POINTS: Add new global utility classes or base element styles (e.g., tables, blockquotes).
+ */
+
+/* ============================================================
+   1) ROOT & TOKENS
+   - Color palette, typography scale, spacing, radii, z-index
+   - A2-Luxe (Navy + Teal) + TS-Elevated type rhythm
+   ============================================================ */
+
+:root {
+    /* Brand palette */
+    --navy-900: #0b1b2a;
+    --navy-800: #11283d;
+    --navy-700: #18334c;
+
+    --teal-400: #2dd4bf;
+    --teal-500: #14b8a6;
+    --teal-600: #0ea5a0;
+
+    --ink-100: #e6eef6;
+    --ink-300: #a8b6c6;
+    --white: #ffffff;
+
+    /* Surface & text */
+    --bg: var(--navy-900);
+    --fg: #e8f0f7;
+    --muted: #bfd0df;
+
+    /* Layout tokens */
+    --maxw: 1200px;
+    --pad-x: clamp(16px, 4vw, 28px);
+    --nav-h: 68px; /* HD-Comfort */
+
+    /* Radii & shadows */
+    --radius: 14px;
+    --radius-sm: 10px;
+    --shadow-1: 0 6px 20px rgba(0, 0, 0, 0.25);
+    --shadow-2: 0 20px 45px rgba(0, 0, 0, 0.35);
+
+    /* Motion timings */
+    --anim-fast: 160ms;
+    --anim-med: 220ms;
+    --anim-slow: 300ms;
+
+    /* HL3-S underline accent */
+    --underline: var(--teal-400);
+    --underline-h: 2px;
+
+    /* Backdrop (BG-Soft ≈35%) */
+    --backdrop-color: rgba(11, 27, 42, 0.35);
+    --backdrop-blur: 2px;
+
+    /* Z-index layering */
+    --z-header: 900;
+    --z-pane: 910;
+    --z-sheet: 1000;
+
+    /* Typography – TS-Elevated scale (serif hero, airy rhythm) */
+    --font-ui: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+
+    --fs-base: 16px;
+    --fs-lead: 1.05rem;
+    --fs-h1: clamp(2.75rem, 6vw, 4rem);   /* ~44px → 64px */
+    --fs-h2: clamp(2rem, 4.2vw, 2.75rem); /* ~32px → 44px */
+    --fs-h3: clamp(1.5rem, 3.2vw, 2rem);  /* ~24px → 32px */
+
+    --lh-base: 1.6;
+    --lh-tight: 1.2;
+}
+
+
+/* ============================================================
+   2) BASE / RESET
+   - Box sizing, default body background, typography basics
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    margin: 0;
+    color: var(--fg);
+    font-family: var(--font-ui);
+    font-size: var(--fs-base);
+    line-height: var(--lh-base);
+    background:
+            radial-gradient(1400px 600px at 80% -100px, #144b45 0%, transparent 60%),
+            radial-gradient(1000px 500px at 10% -120px, #10304a 0%, transparent 60%),
+            linear-gradient(180deg, var(--navy-900), var(--navy-800));
+    min-height: 100vh;
+}
+
+/* Links & buttons baseline */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+button {
+    all: unset;
+    cursor: pointer;
+}
+button:focus {
+    outline: none;
+}
+
+/* Page typography */
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    letter-spacing: 0.3px;
+    margin: 0 0 0.4em 0;
+}
+h1 { font-size: var(--fs-h1); line-height: var(--lh-tight); }
+h2 { font-size: var(--fs-h2); line-height: 1.25; }
+h3 { font-size: var(--fs-h3); line-height: 1.28; }
+
+.lead {
+    color: var(--muted);
+    font-size: var(--fs-lead);
+    max-width: 60ch;
+}

@@ -1,0 +1,31 @@
+/*
+ * FILE: assets/css/layout.css
+ * ROLE: Defines main structural styles: page wrappers, grid systems, and spacing utilities.
+ * HOW TO MODIFY: Adjust max-width, padding, and gutter sizes for responsive layout.
+ * EXTENSION POINTS: Add new grid systems (e.g., 4-column, masonry) or utility classes for margins/paddings.
+ */
+
+/* ============================================================
+   3) LAYOUT
+   - Container & common wrappers
+   ============================================================ */
+
+.wrap {
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: var(--pad-x);
+}
+
+main {
+    padding: 60px var(--pad-x);
+}
+
+footer {
+    margin-top: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Utility for scroll-lock (used by mobile menu) */
+.no-scroll {
+    overflow: hidden;
+}

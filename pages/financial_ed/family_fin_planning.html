@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Basic Page Setup -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Family Financial Planning – V & V Brothers LLC</title>
+  <meta name="description" content="Discover how to create a strong financial foundation for your family. Learn budgeting, saving, insurance, and generational wealth strategies from V & V Brothers LLC." />
+  <link rel="canonical" href="https://www.example.com/pages/family_financial_planning.html" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Family Financial Planning – V & V Brothers LLC" />
+  <meta property="og:description" content="Empower your family’s future with responsible financial planning—budgeting, insurance, and wealth-building guidance from V & V Brothers LLC." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="../assets/img/social/family_financial_planning.jpg" />
+  <meta property="og:url" content="https://www.example.com/pages/family_financial_planning.html" />
+  <meta property="og:site_name" content="V & V Brothers LLC" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Family Financial Planning – V & V Brothers LLC" />
+  <meta name="twitter:description" content="Empower your family’s financial wellness through clear goals, smart budgeting, and protection strategies." />
+  <meta name="twitter:image" content="../assets/img/social/family_financial_planning.jpg" />
+
+  <!-- JSON-LD added dynamically -->
+  <script type="module">
+    import { addJSONLDSchema } from "/assets/js/components/google_seo_json.js";
+
+    window.addEventListener("DOMContentLoaded", () => {
+      addJSONLDSchema({
+        pageTitle: "Family Financial Planning – V & V Brothers LLC",
+        pageDescription: "Discover how to create a strong financial foundation for your family. Learn budgeting, saving, insurance, and generational wealth strategies.",
+        pageUrl: window.location.href,
+        keywords: [
+          "family financial planning",
+          "financial literacy",
+          "wealth building",
+          "life insurance",
+          "budgeting for families",
+          "V & V Brothers"
+        ]
+      });
+    });
+  </script>
+</head>
+
+<body>
+<div id="site-header"></div>
+
+<main class="wrap">
+  <h1 class="page-title">Family Financial Planning</h1>
+  <p class="lead">Empowering families to build lasting financial stability through education, discipline, and protection.</p>
+
+  <!-- SECTION 1: INTRO -->
+  <section class="intro">
+    <h2>Why Family Financial Planning Matters</h2>
+    <p>
+      Financial planning is not about wealth—it’s about wellness and preparedness. Every family deserves a clear roadmap to handle
+      everyday expenses, emergencies, and long-term dreams like education or home ownership.
+    </p>
+    <p>
+      At <strong>V & V Brothers LLC</strong>, we believe that informed financial decisions help families grow stronger together.
+      Our goal is to make financial literacy accessible and practical for every household.
+    </p>
+  </section>
+
+  <!-- SECTION 2: FINANCIAL FOUNDATION TABLE -->
+  <section class="foundation" style="margin-top: 40px;">
+    <h2>Core Elements of a Healthy Family Plan</h2>
+    <table class="info-table">
+      <thead>
+      <tr>
+        <th>Category</th>
+        <th>Purpose</th>
+        <th>Tips</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Budgeting</td>
+        <td>Track income and expenses to prioritize needs and goals.</td>
+        <td>Use the 50/30/20 rule — 50% needs, 30% wants, 20% savings & debt.</td>
+      </tr>
+      <tr>
+        <td>Emergency Fund</td>
+        <td>Protect against job loss, medical costs, or major repairs.</td>
+        <td>Save 3–6 months of essential expenses in a high-yield account.</td>
+      </tr>
+      <tr>
+        <td>Insurance</td>
+        <td>Ensure income continuity and protect loved ones.</td>
+        <td>Review life and health insurance policies annually.</td>
+      </tr>
+      <tr>
+        <td>Retirement Planning</td>
+        <td>Build long-term wealth for financial independence.</td>
+        <td>Leverage 401(k)s, IRAs, and compounding growth early on.</td>
+      </tr>
+      <tr>
+        <td>Education & Legacy</td>
+        <td>Plan for your children’s education and future transfers.</td>
+        <td>Explore 529 plans or trusts to manage generational wealth.</td>
+      </tr>
+      </tbody>
+    </table>
+    <p style="font-size: 0.9rem; color: var(--muted);">
+      Sources:
+      <a href="https://www.consumerfinance.gov/" target="_blank">Consumer Financial Protection Bureau (CFPB)</a>,
+      <a href="https://www.investor.gov/" target="_blank">U.S. SEC Investor.gov</a>,
+      <a href="https://www.fdic.gov/resources/consumers/" target="_blank">FDIC Financial Education</a>.
+    </p>
+  </section>
+
+  <!-- SECTION 3: INTERACTIVE QUIZ / TOOL -->
+  <section class="interactive" style="margin-top: 50px;">
+    <h2>Quick Family Readiness Check</h2>
+    <p>Answer a few simple questions to reflect on your family’s current financial health:</p>
+    <button id="startQuiz" class="btn-primary">Start Self-Check</button>
+    <div id="quizContainer" class="hidden" style="margin-top: 20px;">
+      <ol id="quizList"></ol>
+    </div>
+  </section>
+
+  <!-- SECTION 4: CTA -->
+  <section class="cta" style="margin-top: 60px; text-align: center;">
+    <h2>Ready to Strengthen Your Family’s Financial Future?</h2>
+    <p>
+      Explore more educational resources and personalized guidance through our <a href="/pages/financial_ed.html">Financial Education Hub</a>.
+    </p>
+    <a href="/pages/contact.html" class="btn-accent">Talk to a Financial Coach</a>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<!-- Core Scripts -->
+<script type="module" src="/assets/js/core.js" defer></script>
+<script type="module" src="/assets/js/pages/financial_ed.js" defer></script>
+
+<!-- Page-Specific JS -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const quizData = [
+      "Do you have a written household budget?",
+      "Do you save at least 10% of your income monthly?",
+      "Do you review insurance coverage annually?",
+      "Have you started retirement or education savings?",
+      "Do you discuss money goals as a family?"
+    ];
+
+    const quizContainer = document.getElementById("quizContainer");
+    const quizList = document.getElementById("quizList");
+    const startBtn = document.getElementById("startQuiz");
+
+    startBtn.addEventListener("click", () => {
+      quizContainer.classList.toggle("hidden");
+      quizList.innerHTML = quizData.map(q => `<li>${q}</li>`).join("");
+    });
+  });
+</script>
+</body>
+</html>
