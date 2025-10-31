@@ -1,5 +1,5 @@
 /**
- * FILE: netlify/functions/submit-form.ts
+ * FILE: netlify/functions/submit-contact.ts
  * PURPOSE: Receives contact form data and sends emails via Brevo (Transactional API)
  * FLOW:
  *  1) Send admin notification (always)

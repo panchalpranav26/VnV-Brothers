@@ -6,140 +6,201 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Book a Consultation – V & V Brothers LLC</title>
-  <meta name="description" content="Schedule a friendly, no-pressure consultation with V & V Brothers LLC to discuss financial literacy, protection, and wealth-building strategies for your family." />
+  <meta name="description" content="Empower your family’s financial future with a trusted, friendly consultation—literacy, protection, and wealth-building made clear and actionable." />
   <link rel="canonical" href="https://www.example.com/pages/book_consultation.html" />
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
+  <!-- Core CSS + Page CSS -->
   <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/pages/contact_consult.css" />
 
-  <!-- Open Graph -->
+  <!-- OG / Twitter -->
   <meta property="og:title" content="Book a Consultation – V & V Brothers LLC" />
-  <meta property="og:description" content="Empower your family with financial literacy, protection, and wealth-building strategies through a personalized consultation." />
+  <meta property="og:description" content="Guidance you can trust—build literacy, protect your family, and plan for long-term wealth." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="../assets/img/social/book_consultation.jpg" />
+  <meta property="og:image" content="/assets/img/social/book_consultation.jpg" />
   <meta property="og:url" content="https://www.example.com/pages/book_consultation.html" />
   <meta property="og:site_name" content="V & V Brothers LLC" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Book a Consultation – V & V Brothers LLC" />
-  <meta name="twitter:description" content="Take the first step toward your family's financial confidence. Schedule your consultation today." />
-  <meta name="twitter:image" content="../assets/img/social/book_consultation.jpg" />
+  <meta name="twitter:description" content="Empower your family’s financial future with a trusted, friendly consultation." />
+  <meta name="twitter:image" content="/assets/img/social/book_consultation.jpg" />
 
-  <!-- JSON-LD added dynamically via JS -->
+  <!-- JSON-LD via shared helper -->
   <script type="module">
     import { addJSONLDSchema } from "/assets/js/components/google_seo_json.js";
-
     window.addEventListener("DOMContentLoaded", () => {
       addJSONLDSchema({
         pageTitle: "Book a Consultation – V & V Brothers LLC",
-        pageDescription: "Schedule a financial literacy or protection consultation with our trusted team at V & V Brothers LLC.",
+        pageDescription: "Schedule a financial literacy or protection consultation with V & V Brothers LLC.",
         pageUrl: window.location.href,
-        keywords: ["book consultation", "financial literacy", "life insurance", "wealth building", "V & V Brothers", "financial planning"]
+        keywords: [
+          "book consultation","financial literacy","life insurance","wealth building",
+          "budgeting help","family finance","V & V Brothers"
+        ]
       });
     });
   </script>
 </head>
 
 <body>
+<!-- Header -->
 <div id="site-header"></div>
 
-<main class="wrap">
-  <section class="hero-section" style="text-align:center; margin-top:40px;">
-    <h1 class="page-title">Book a Consultation</h1>
-    <p class="lead">Take the first confident step toward your family’s financial empowerment. Our sessions are personal, transparent, and tailored to your goals.</p>
+<main class="wrap consult-wrap">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__content">
+      <h1 class="hero__title">Empower Your Family’s Financial Future—<span class="txt-accent">with Guidance You Can Trust</span></h1>
+      <p class="hero__sub">
+        Friendly, no-pressure consultations focused on financial literacy, protection, and long-term wealth building—tailored to your goals.
+      </p>
+
+      <div class="hero__cta">
+        <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book on Calendly</a>
+        <a class="btn btn-ghost" href="#request">Request a Time</a>
+      </div>
+
+      <div class="trust-badges" aria-label="Trust and credibility">
+        <div class="badge">✔ Judgment-free</div>
+        <div class="badge">✔ Plain-English guidance</div>
+        <div class="badge">✔ Family-first values</div>
+      </div>
+    </div>
   </section>
 
-  <section style="margin-top:60px;">
-    <h2>What to Expect</h2>
-    <p>At <strong>V & V Brothers LLC</strong>, our mission is to help families build financial literacy, protect what matters most, and plan for sustainable wealth. Each consultation is conducted in a friendly, judgment-free environment.</p>
+  <!-- VALUE: WHAT YOU’LL GAIN -->
+  <section class="value">
+    <h2 class="section-title">What you’ll gain in 45–75 minutes</h2>
+    <div class="cards">
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">💡</div>
+        <h3 class="card__title">Clarity & Confidence</h3>
+        <p class="card__body">Understand your options in simple terms—budgeting, credit, and protection without jargon.</p>
+      </article>
 
-    <table class="consultation-table" style="width:100%; border-collapse:collapse; margin-top:20px;">
-      <thead style="background:#f4f7fa;">
-      <tr>
-        <th style="padding:10px; text-align:left;">Session Type</th>
-        <th style="padding:10px; text-align:left;">Focus Area</th>
-        <th style="padding:10px; text-align:left;">Typical Duration</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td style="padding:10px;">Financial Literacy 101</td>
-        <td style="padding:10px;">Budgeting, saving habits, and understanding credit</td>
-        <td style="padding:10px;">45 minutes</td>
-      </tr>
-      <tr>
-        <td style="padding:10px;">Protection Planning</td>
-        <td style="padding:10px;">Life insurance, emergency funds, and family security</td>
-        <td style="padding:10px;">60 minutes</td>
-      </tr>
-      <tr>
-        <td style="padding:10px;">Wealth-Building Strategy</td>
-        <td style="padding:10px;">Investment basics, long-term planning, passive income</td>
-        <td style="padding:10px;">75 minutes</td>
-      </tr>
-      </tbody>
-    </table>
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">🛡️</div>
+        <h3 class="card__title">Protection Plan</h3>
+        <p class="card__body">Discuss emergency funds, life insurance basics, and ways to protect what matters most.</p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">🌱</div>
+        <h3 class="card__title">Path to Grow</h3>
+        <p class="card__body">Learn simple, disciplined steps to build long-term wealth aligned to your family goals.</p>
+      </article>
+    </div>
   </section>
 
-  <section style="margin-top:60px;">
-    <h2>Schedule Your Session</h2>
-    <p>Use the form below to request a consultation. A member of our team will contact you to confirm your preferred time and meeting format.</p>
+  <!-- SESSION TYPES -->
+  <section class="sessions">
+    <h2 class="section-title">Choose your session</h2>
+    <div class="cards">
+      <article class="card card--session">
+        <div class="card__icon" aria-hidden="true">📘</div>
+        <h3 class="card__title">Financial Literacy 101</h3>
+        <ul class="card__list">
+          <li>Budget, credit, savings habits</li>
+          <li>Build your first plan</li>
+          <li><strong>45 min</strong> · Friendly & practical</li>
+        </ul>
+      </article>
 
-    <form id="consultationForm" style="max-width:600px; margin:auto; margin-top:30px;">
-      <label for="name">Full Name</label><br>
-      <input type="text" id="name" name="name" required placeholder="Jane Doe" style="width:100%; padding:10px; margin-bottom:10px;"><br>
+      <article class="card card--session">
+        <div class="card__icon" aria-hidden="true">🛡️</div>
+        <h3 class="card__title">Protection Planning</h3>
+        <ul class="card__list">
+          <li>Emergency fund + risk basics</li>
+          <li>Life insurance 101 (no sales pressure)</li>
+          <li><strong>60 min</strong> · Family-first</li>
+        </ul>
+      </article>
 
-      <label for="email">Email Address</label><br>
-      <input type="email" id="email" name="email" required placeholder="you@example.com" style="width:100%; padding:10px; margin-bottom:10px;"><br>
+      <article class="card card--session">
+        <div class="card__icon" aria-hidden="true">📈</div>
+        <h3 class="card__title">Wealth-Building Strategy</h3>
+        <ul class="card__list">
+          <li>Principles, compounding, discipline</li>
+          <li>Align to long-term goals</li>
+          <li><strong>75 min</strong> · Actionable next steps</li>
+        </ul>
+      </article>
+    </div>
+  </section>
 
-      <label for="session">Preferred Session Type</label><br>
-      <select id="session" name="session" required style="width:100%; padding:10px; margin-bottom:10px;">
-        <option value="">-- Select --</option>
-        <option value="financial_literacy">Financial Literacy 101</option>
-        <option value="protection_planning">Protection Planning</option>
-        <option value="wealth_building">Wealth-Building Strategy</option>
-      </select><br>
+  <!-- REQUEST FORM -->
+  <section id="request" class="request">
+    <div class="request__head">
+      <h2 class="section-title">Request a consultation</h2>
+      <p class="muted">Prefer us to coordinate a time with you? Send a quick request—no pressure, no spam.</p>
+    </div>
 
-      <label for="message">Additional Notes</label><br>
-      <textarea id="message" name="message" placeholder="Tell us a bit about your goals..." style="width:100%; padding:10px; margin-bottom:15px;" rows="4"></textarea><br>
+    <form id="consultation-form" class="contact-form">
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="name">Full Name <span class="required">*</span></label>
+          <input id="name" name="name" type="text" required placeholder="Jane Doe" />
+        </div>
 
-      <button type="submit" style="padding:12px 20px; background:#0a4c8a; color:white; border:none; border-radius:6px; cursor:pointer;">
-        Submit Request
-      </button>
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com" />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="phone">Phone (Optional)</label>
+          <input id="phone" name="phone" type="tel" placeholder="(555) 000-1234" />
+        </div>
+
+        <div class="form-group">
+          <label for="session">Preferred Session Type <span class="required">*</span></label>
+          <select id="session" name="session" required>
+            <option value="" disabled selected>— Select —</option>
+            <option value="Financial Literacy 101">Financial Literacy 101</option>
+            <option value="Protection Planning">Protection Planning</option>
+            <option value="Wealth-Building Strategy">Wealth-Building Strategy</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">What would you like to focus on? <span class="required">*</span></label>
+        <textarea id="message" name="message" rows="5" required placeholder="Tell us a bit about your goals or questions…"></textarea>
+      </div>
+
+      <div id="form-status" class="form-status" role="alert" aria-live="polite"></div>
+
+      <div class="actions">
+        <button type="submit" class="btn btn-primary">Submit Request</button>
+        <a class="btn btn-ghost" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book on Calendly</a>
+      </div>
+
+      <p class="privacy">We’ll only use your info to coordinate this consultation. No spam. No sharing.</p>
     </form>
-
-    <p id="formStatus" style="text-align:center; margin-top:15px; color:green; display:none;">Thank you! Your request has been received.</p>
   </section>
 
-  <section style="margin-top:80px; font-size:0.9rem; color:#555;">
-    <h3>Transparency & Trust</h3>
-    <p>We never share or sell your personal information. Sessions are educational in nature and designed to empower you to make informed decisions.</p>
-
-    <ul>
-      <li><a href="https://www.consumerfinance.gov/consumer-tools/money-as-you-grow/" target="_blank" rel="noopener">Consumer Financial Protection Bureau (CFPB) – Money As You Grow</a></li>
-      <li><a href="https://www.fdic.gov/resources/consumers/money-smart/" target="_blank" rel="noopener">FDIC – Money Smart Financial Education</a></li>
-      <li><a href="https://www.sec.gov/investor/pubs/roadmap.htm" target="_blank" rel="noopener">SEC – Roadmap to Saving and Investing</a></li>
+  <!-- TRUST LINKS -->
+  <section class="sources">
+    <h3 class="section-title-sm">Grounded, unbiased education</h3>
+    <ul class="source-list">
+      <li><a href="https://www.consumerfinance.gov/consumer-tools/money-as-you-grow/" target="_blank" rel="noopener">CFPB — Money As You Grow</a></li>
+      <li><a href="https://www.fdic.gov/resources/consumers/money-smart/" target="_blank" rel="noopener">FDIC — Money Smart</a></li>
+      <li><a href="https://www.sec.gov/investor/pubs/roadmap.htm" target="_blank" rel="noopener">SEC — Roadmap to Saving & Investing</a></li>
     </ul>
   </section>
 </main>
 
+<!-- Footer -->
 <div id="site-footer"></div>
 
-<!-- Core Scripts -->
+<!-- Scripts -->
 <script type="module" src="/assets/js/core.js" defer></script>
 <script type="module" src="/assets/js/pages/contact_consult.js" defer></script>
-
-<!-- Inline JS for form feedback -->
-<script>
-  document.getElementById('consultationForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    document.getElementById('formStatus').style.display = 'block';
-    this.reset();
-  });
-</script>
 </body>
 </html>
