@@ -8,7 +8,7 @@
     <title>Contact V & V Brothers LLC – Book a Consultation</title>
 
     <!-- Primary Meta Description for SEO -->
-    <meta name="description" content="Contact V & V Brothers LLC to book a consultation, ask a question, or start your journey to financial literacy and protection." />
+    <meta name="description" content="Contact V & V Brothers LLC to book a consultation, ask a question, or start your journey to financial literacy, protection, and wealth-building." />
 
     <!-- Canonical URL (update when domain is live) -->
     <link rel="canonical" href="https://www.example.com/pages/contact.html" />
@@ -18,19 +18,20 @@
 
     <!-- External CSS (Modularized) -->
     <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/pages/contact_consult.css" />
 
-    <!-- Open Graph (Facebook/LinkedIn/iMessage link preview) -->
+    <!-- Open Graph (Social Preview) -->
     <meta property="og:title" content="Contact V & V Brothers LLC – Book a Consultation" />
-    <meta property="og:description" content="Contact V & V Brothers LLC to book a consultation, ask a question, or start your journey to financial literacy and protection." />
-    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Connect with V & V Brothers LLC to schedule a consultation and begin building financial confidence and protection for your family." />
+    <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/img/social/preview.jpg" />
     <meta property="og:url" content="https://www.example.com/pages/contact.html" />
     <meta property="og:site_name" content="V & V Brothers LLC" />
 
-    <!-- Twitter Card (X preview) -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Contact V & V Brothers LLC – Book a Consultation" />
-    <meta name="twitter:description" content="Contact V & V Brothers LLC to book a consultation, ask a question, or start your journey to financial literacy and protection." />
+    <meta name="twitter:description" content="Connect with V & V Brothers LLC for financial education, protection, and guidance for your family." />
     <meta name="twitter:image" content="/assets/img/social/preview.jpg" />
 
     <!-- JSON-LD Schema for SEO Rich Results -->
@@ -53,7 +54,6 @@
             });
         });
     </script>
-
 </head>
 
 <body>
@@ -64,59 +64,64 @@
 <!-- Main Content -->
 <main class="wrap">
     <h1 class="page-title">Contact Us</h1>
-    <p class="lead">Ready to take control of your financial future? Fill out the form below to schedule a consultation or ask any questions you may have.</p>
+    <p class="lead">
+        We're here to support your journey toward financial confidence, family protection, and long-term wealth-building.
+        Fill out the form below, and our team will reach out shortly.
+    </p>
 
     <div style="max-width: 600px; margin: 40px auto 0;">
-        <form id="contact-form" style="display: grid; gap: 20px;">
+        <form id="contact-form" class="contact-form">
             <div class="form-group">
-                <label for="name" style="display: block; margin-bottom: 8px;">Name <span style="color: var(--teal-400);">*</span></label>
-                <input type="text" id="name" name="name" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--navy-800); color: var(--fg);">
+                <label for="name">Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required />
             </div>
 
             <div class="form-group">
-                <label for="email" style="display: block; margin-bottom: 8px;">Email <span style="color: var(--teal-400);">*</span></label>
-                <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--navy-800); color: var(--fg);">
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required />
             </div>
 
             <div class="form-group">
-                <label for="phone" style="display: block; margin-bottom: 8px;">Phone (Optional)</label>
-                <input type="tel" id="phone" name="phone" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--navy-800); color: var(--fg);">
+                <label for="phone">Phone (Optional)</label>
+                <input type="tel" id="phone" name="phone" />
             </div>
 
             <div class="form-group">
-                <label for="topic" style="display: block; margin-bottom: 8px;">Topic <span style="color: var(--teal-400);">*</span></label>
-                <select id="topic" name="topic" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--navy-800); color: var(--fg);">
+                <label for="topic">Topic <span class="required">*</span></label>
+                <select id="topic" name="topic" required>
                     <option value="" disabled selected>Select a topic</option>
-                    <option value="consultation">Book a Consultation</option>
-                    <option value="life_insurance">Life Insurance Guidance</option>
-                    <option value="financial_education">Financial Education Inquiry</option>
-                    <option value="other">Other Inquiry</option>
+                    <option value="Book a Consultation">Book a Consultation</option>
+                    <option value="Life Insurance Guidance">Life Insurance Guidance</option>
+                    <option value="Financial Education Inquiry">Financial Education Inquiry</option>
+                    <option value="Other Inquiry">Other Inquiry</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="message" style="display: block; margin-bottom: 8px;">Message <span style="color: var(--teal-400);">*</span></label>
-                <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--navy-800); color: var(--fg);"></textarea>
+                <label for="message">Message <span class="required">*</span></label>
+                <textarea id="message" name="message" rows="5" required></textarea>
             </div>
 
-            <div id="form-status" role="alert" aria-live="polite" style="margin-top: 10px; font-weight: 600;"></div>
+            <div id="form-status" class="form-status" aria-live="polite"></div>
 
-            <button type="submit" class="cta" style="width: 100%; justify-content: center; margin-top: 10px;">Send Message</button>
+            <button type="submit" class="cta full-btn">Send Message</button>
         </form>
 
-        <p style="font-size: 0.85rem; color: var(--muted); text-align: center; margin-top: 25px;">
-            Privacy Note: Your information will be used solely to respond to your inquiry and will not be shared with third parties without your explicit consent.
+
+        <p style="font-size:0.85rem;color:var(--muted);text-align:center;margin-top:25px;">
+            Your information is kept private and will only be used to respond to your request.
         </p>
     </div>
 </main>
 
-
 <!-- Footer -->
 <div id="site-footer"></div>
 
-<!-- Defer script loading -->
+<!-- Scripts -->
 <script type="module" src="../assets/js/core.js" defer></script>
-<script type="module" src="../assets/js/pages/contact_consult.js" defer></script>
-
+<script type="module">
+    import { initContactForm } from "../assets/js/pages/contact_consult.js";
+    window.addEventListener("DOMContentLoaded", initContactForm);
+</script>
 </body>
 </html>

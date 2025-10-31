@@ -1,70 +1,102 @@
 /*
- * FILE: assets/js/pages/contact.js
- * ROLE: Handles the contact form submission process, including client-side validation and POSTing data to the Netlify Function.
- * HOW TO MODIFY: Update form field validation rules or adjust the success/error UI presentation.
- * EXTENSION POINTS: Easily swap the fetch endpoint to a different serverless function or API. Add reCAPTCHA logic here.
+ * FILE: assets/js/pages/contact_consult.js
+ * ROLE: Handles contact form submission with enhanced UX + validation + POST to Netlify Function
  */
 
-/**
- * Handles the contact form submission.
- */
 export function initContactForm() {
     const form = document.getElementById('contact-form');
     const statusMessage = document.getElementById('form-status');
 
     if (!form || !statusMessage) {
-        console.error('Contact form or status message element not found.');
+        console.error('[Contact Form] Form or status element not found.');
         return;
+    }
+
+    // ✅ Add UX: Real-time validation feedback
+    const requiredFields = ["name", "email", "topic", "message"];
+    requiredFields.forEach(id => {
+        const input = document.getElementById(id);
+        input.addEventListener("blur", () => validateField(input));
+        input.addEventListener("input", () => validateField(input));
+    });
+
+    function validateField(input) {
+        if (!input.value.trim()) {
+            input.style.border = "2px solid #d9534f"; // red
+        } else {
+            input.style.border = "2px solid #0DB2AF"; // teal
+        }
     }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        statusMessage.textContent = 'Submitting...';
-        statusMessage.setAttribute('aria-live', 'assertive');
 
-        // 1. Client-side Validation (Simple example)
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
+        // Clear previous status
+        statusMessage.textContent = "";
+        statusMessage.style.color = 'var(--muted)';
 
-        if (!data.name || !data.email || !data.topic || !data.message) {
-            statusMessage.textContent = 'Please fill out all required fields (Name, Email, Topic, Message).';
-            statusMessage.style.color = 'var(--teal-400)'; // Use a brand color for error
+        // Validate required fields before sending
+        let hasError = false;
+        requiredFields.forEach(id => {
+            const input = document.getElementById(id);
+            if (!input.value.trim()) {
+                validateField(input);
+                hasError = true;
+            }
+        });
+
+        if (hasError) {
+            statusMessage.textContent = '⚠️ Please fill in all required fields.';
+            statusMessage.style.color = 'red';
             return;
         }
 
-        // 2. POST to Netlify Function
+        // Build form data object
+        const data = {
+            name: document.getElementById('name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            phone: document.getElementById('phone').value.trim(),
+            topic: document.getElementById('topic').value,
+            message: document.getElementById('message').value.trim(),
+        };
+
+        // Disable button + show spinner
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span class="spinner"></span> Sending...`;
+
         try {
             const response = await fetch('/.netlify/functions/submit-form', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
 
-            const result = await response.json();
+            const resData = await response.json();
 
-            if (response.ok && result.ok) {
-                statusMessage.textContent = 'Success! Your message has been sent. We will be in touch soon.';
+            if (response.ok && resData.ok) {
+                statusMessage.textContent = '✅ Message sent! Check your email for confirmation.';
                 statusMessage.style.color = 'var(--teal-400)';
                 form.reset();
+
+                // Reset styles on success
+                requiredFields.forEach(id => {
+                    document.getElementById(id).style.border = "";
+                });
+
             } else {
-                // Server-side error
-                statusMessage.textContent = `Error: Submission failed. Please try again later. (Details: ${result.error || 'Unknown error'})`;
+                statusMessage.textContent = `❌ Failed: ${resData.error ?? 'Unknown server error'}`;
                 statusMessage.style.color = 'red';
             }
+
         } catch (error) {
-            // Network or fetch error
-            statusMessage.textContent = 'Error: Could not connect to the server. Please check your internet connection.';
+            statusMessage.textContent = '❌ Network error. Please try again later.';
             statusMessage.style.color = 'red';
-            console.error('Fetch error:', error);
+            console.error('[Contact Form] Fetch error:', error);
         }
+
+        // Re-enable button
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
     });
-
-    // --- EXTENSION POINT: Airtable/reCAPTCHA ---
-    // To switch to Airtable, replace the fetch URL and payload structure above.
-    // To add reCAPTCHA, implement the token generation before the fetch call and include it in the payload.
-    // The serverless function would then need to verify the token.
 }
-
-// Note: This function will be called from pages/contact.html

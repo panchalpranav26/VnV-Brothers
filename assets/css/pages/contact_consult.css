@@ -4,3 +4,56 @@
  * HOW TO MODIFY: Add styles for the contact form layout, success/error messages, and validation feedback.
  * EXTENSION POINTS: None.
  */
+.contact-form .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: var(--fg);
+}
+
+
+
+
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: var(--gray-100);
+    color: var(--gray-900);
+    font-size: 0.95rem;
+}
+
+.contact-form select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: var(--gray-100);
+    color: var(--gray-900);
+    font-size: 0.95rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--teal-400);
+    outline: none;
+}
+
+.contact-form .required {
+    color: var(--teal-400);
+}
+
+.full-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.form-status {
+    margin-top: 5px;
+    font-weight: 600;
+    min-height: 20px;
+}
