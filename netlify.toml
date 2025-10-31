@@ -1,10 +1,6 @@
-# ===========================================
-# Netlify Configuration for VnV Brothers LLC
-# ===========================================
-
 [build]
-command = ""        # No build step; static HTML site
-publish = "."       # Deploy everything from repo root
+command = ""
+publish = "."
 
 [functions]
 directory = "netlify/functions"
