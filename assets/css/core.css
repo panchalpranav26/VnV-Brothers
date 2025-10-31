@@ -25,10 +25,34 @@
     --ink-300: #a8b6c6;
     --white: #ffffff;
 
+    /* Palette */
+    --gray-100: #f5f6f7;
+    --gray-200: #e3e4e8;
+    --gray-300: #c2c5cc;
+    --gray-400: #9da1aa;
+    --gray-500: #6e737c;
+    --gray-600: #4b4f56;
+    --gray-700: #34373c;
+    --gray-800: #232528;
+    --gray-900: #1a1c1e;
+
+    /* Brand colors */
+    --primary: #0077b6;     /* Accent blue */
+    --accent: #00b4d8;      /* Call-to-action highlight */
+    --surface: #0d1b2a;     /* Default background */
+    --surface-alt: #142b3f; /* Lighter background panels */
+    --text: #f1f5f9;        /* Primary text color */
+    --muted: #a0aec0;       /* Secondary text color */
+    --radius: 10px;         /* Global border radius */
+
     /* Surface & text */
     --bg: var(--navy-900);
     --fg: #e8f0f7;
     --muted: #bfd0df;
+
+    /* Fonts */
+    --font-serif: "Cormorant Garamond", serif;
+    --font-sans: "Inter", sans-serif;
 
     /* Layout tokens */
     --maxw: 1200px;
@@ -74,6 +98,10 @@
     --lh-tight: 1.2;
 }
 
+.dark {
+    --muted: #94a3b8;
+    --surface-alt: #1e293b;
+}
 
 /* ============================================================
    2) BASE / RESET
@@ -118,7 +146,7 @@ button:focus {
 
 /* Page typography */
 h1, h2, h3 {
-    font-family: var(--font-serif);
+    font-family: var(--font-serif), serif;
     letter-spacing: 0.3px;
     margin: 0 0 0.4em 0;
 }

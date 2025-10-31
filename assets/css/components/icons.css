@@ -97,3 +97,12 @@ ul.icon-list li .icon-inline {
 .dark .icon-muted {
     color: var(--gray-400);
 }
+
+.dark {
+    --surface: #0a1929;
+    --surface-alt: #112d4e;
+    --text: #e2e8f0;
+    --muted: #a0aec0;
+    --accent: #00b4d8;
+    --primary: #0077b6;
+}
