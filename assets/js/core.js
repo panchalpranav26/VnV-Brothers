@@ -54,7 +54,6 @@ function resolvePath(path) {
     return isLocal ? `..${path}` : path;
 }
 
-
 function fixHomeLinks() {
     try {
         const links = document.querySelectorAll('[data-home]');
@@ -66,15 +65,19 @@ function fixHomeLinks() {
         }
 
         const path = window.location.pathname;
-        const inPages = path.includes("/pages/");
-        const newHref = inPages ? "../" : "./";
+
+        // Count depth (number of folders before filename)
+        const depth = path.split("/").filter(Boolean).length - 1;
+
+        // Create correct prefix: "../" for each level
+        const prefix = depth > 0 ? "../".repeat(depth) : "./";
 
         console.debug("[fixHomeLinks] Current path:", path);
-        console.debug("[fixHomeLinks] In pages folder?", inPages);
-        console.debug("[fixHomeLinks] Assigned Home HREF:", newHref);
+        console.debug("[fixHomeLinks] Depth:", depth);
+        console.debug("[fixHomeLinks] Assigned Home HREF:", prefix);
 
         links.forEach(link => {
-            link.setAttribute("href", newHref);
+            link.setAttribute("href", prefix + "index.html");
             console.debug("[fixHomeLinks] Updated link:", link);
         });
 
@@ -84,5 +87,6 @@ function fixHomeLinks() {
         console.error("[fixHomeLinks] ❌ Error updating home links:", err);
     }
 }
+
 
 
