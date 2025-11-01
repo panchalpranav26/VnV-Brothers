@@ -111,7 +111,10 @@ function initConsultationForm() {
     const form = document.getElementById('consultation-form');
     const status = document.getElementById('form-status');
 
-    if (!form || !status) return;
+    if (!form || !status) {
+        console.warn("[consultation] Form or status element not found on page.");
+        return;
+    }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -126,36 +129,66 @@ function initConsultationForm() {
             message: document.getElementById('message').value.trim(),
         };
 
+        console.debug("[consultation] Payload:", payload);
+
         if (!payload.name || !payload.email || !payload.topic || !payload.message) {
             status.textContent = 'Please complete all required fields.';
             status.style.color = 'red';
+            console.warn("[consultation] Missing required fields:", payload);
             return;
         }
 
+        let endpoint = '/.netlify/functions/submit-consultation';
+
+        // Detect local environment
+        if (window.location.hostname === "localhost") {
+            endpoint = "http://localhost:8888/.netlify/functions/submit-consultation";
+            console.debug("[consultation] Using LOCAL Netlify endpoint:", endpoint);
+        } else {
+            console.debug("[consultation] Using DEPLOYED endpoint:", endpoint);
+        }
+
         try {
-            const res = await fetch('/.netlify/functions/submit_consultation', {
+            console.debug("[consultation] Sending POST request...");
+            const res = await fetch(endpoint, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
             });
 
-            const data = await res.json();
+            console.debug("[consultation] Raw response status:", res.status);
+
+            const responseText = await res.text();
+            console.debug("[consultation] Raw response text:", responseText);
+
+            let data;
+            try {
+                data = JSON.parse(responseText);
+            } catch (jsonErr) {
+                console.error("[consultation] ❌ Failed to parse JSON response:", jsonErr);
+                throw new Error("Server did not return valid JSON.");
+            }
+
+            console.debug("[consultation] Parsed JSON:", data);
 
             if (res.ok && data.ok) {
                 status.textContent = '✅ Request received! Please check your email for confirmation.';
                 status.style.color = 'var(--teal-400)';
                 form.reset();
+                console.info("[consultation] Submission successful.");
             } else {
                 status.textContent = `❌ Error: ${data.error || 'Unable to submit request'}`;
                 status.style.color = 'red';
+                console.warn("[consultation] Server returned error:", data);
             }
 
         } catch (err) {
-            console.error('[consultation] submit error', err);
-            status.textContent = '❌ Network error. Please try again.';
+            console.error("[consultation] SUBMIT ERROR:", err);
+            status.textContent = '❌ Network or server error. Please try again.';
             status.style.color = 'red';
         }
     });
 }
 
 window.addEventListener('DOMContentLoaded', initConsultationForm);
+
