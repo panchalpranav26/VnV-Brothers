@@ -1,0 +1,228 @@
+/*
+ * FILE: assets/css/components/mobile-nav.css
+ * ROLE: Mobile Navigation Drawer + Accordion Styles
+ *
+ * DEPENDS ON:
+ *  - core.css (variables, colors, fonts)
+ *  - mobile_nav.js (accordion + drawer logic)
+ *
+ * NOTE:
+ *  Desktop nav is controlled by nav.css
+ *  Mobile nav only shows below 981px
+ */
+
+/* ============================================================
+   1) MOBILE NAV DRAWER
+   ------------------------------------------------------------
+   Hidden by default. Slides in from the right when active.
+   Soft Luxe frosted-glass look, matching brand.
+   ============================================================ */
+
+.mobile-nav-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;                 /* hidden off-screen */
+    width: 86%;
+    max-width: 360px;
+    height: 100vh;
+    background: color-mix(in srgb, var(--navy-800) 88%, transparent);
+    backdrop-filter: blur(12px);
+    box-shadow: -2px 0 14px rgba(0,0,0,0.35);
+    transition: right 280ms ease;
+    z-index: var(--z-sheet);
+    overflow-y: auto;
+    padding: 20px 16px;
+}
+
+.mobile-nav-panel.active {
+    right: 0;                      /* slide in */
+}
+
+/* Prevent body scroll when drawer is open */
+body.mobile-nav-open {
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   2) OVERLAY
+   ============================================================ */
+
+.mobile-nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 220ms ease;
+    z-index: calc(var(--z-sheet) - 1);
+}
+
+.mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ============================================================
+   3) HAMBURGER TOGGLE BUTTON
+   ============================================================ */
+
+.mobile-nav-toggle {
+    display: none;                 /* hidden on desktop */
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: background 160ms ease;
+}
+
+.mobile-nav-toggle:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+/* Hamburger icon (3 bars -> X animation) */
+.mobile-nav-toggle__icon {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-nav-toggle__icon span {
+    width: 20px;
+    height: 2px;
+    background: var(--fg);
+    border-radius: 3px;
+    transition: transform 200ms ease, opacity 200ms ease;
+}
+
+/* Animate to X when active */
+.mobile-nav-toggle.active .mobile-nav-toggle__icon span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.mobile-nav-toggle.active .mobile-nav-toggle__icon span:nth-child(2) {
+    opacity: 0;
+}
+.mobile-nav-toggle.active .mobile-nav-toggle__icon span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ============================================================
+   4) MOBILE MENU ITEMS
+   ============================================================ */
+
+.mobile-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mobile-menu li a {
+    display: block;
+    padding: 12px 4px;
+    font-size: 1rem;
+    color: var(--fg);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 160ms ease;
+}
+
+.mobile-menu li a:active {
+    background: rgba(255,255,255,0.12);
+}
+
+
+/* ============================================================
+   5) ACCORDION
+   ============================================================ */
+
+.mobile-menu li.has-submenu {
+    position: relative;
+    padding-right: 28px; /* space for caret */
+}
+
+/* Caret Button */
+.mobile-caret {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--fg);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 4px;
+    transition: transform 200ms ease;
+}
+
+/* Chevron rotation */
+.mobile-caret[aria-expanded="true"] {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Submenu slide + fade animation */
+.mobile-menu li ul {
+    list-style: none;
+    margin: 6px 0 0 0;
+    padding-left: 14px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    display: block;  /* ✅ must stay block for transitions */
+    transition:
+            max-height 220ms ease,
+            opacity 200ms ease;
+}
+
+.mobile-menu li ul.show {
+    opacity: 1;
+    max-height: 420px; /* Expand */
+}
+
+.mobile-menu li ul li a {
+    font-size: 0.94rem;
+    padding: 10px 4px;
+    opacity: 0.88;
+}
+
+
+/* ============================================================
+   6) RESPONSIVE VISIBILITY RULES
+   ============================================================ */
+
+/* Desktop View (≥981px) */
+@media (min-width: 981px) {
+    .mobile-nav-toggle,
+    #mobile-nav-panel,
+    #mobile-nav-overlay {
+        display: none !important;
+    }
+
+    /* Desktop menu visible on desktop */
+    .menu {
+        display: flex !important;
+    }
+}
+
+/* Mobile + Tablet View (≤980px) */
+@media (max-width: 980px) {
+    /* Show hamburger */
+    .mobile-nav-toggle {
+        display: flex !important;
+    }
+
+    /* Hide desktop menu on mobile */
+    .nav > .menu {
+        display: none !important;
+    }
+}

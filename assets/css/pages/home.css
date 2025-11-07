@@ -1,6 +1,338 @@
-/*
- * FILE: assets/css/pages/home.css
- * ROLE: Styles specific to the Home page (index.html).
- * HOW TO MODIFY: Add styles for the hero section, featured components, and page-specific layouts.
- * EXTENSION POINTS: None.
- */
+.home-hero {
+    position: relative;
+    text-align: center;
+    padding: 35px 20px;
+    overflow: hidden;
+
+    background: linear-gradient(
+            180deg,
+            rgba(10, 32, 55, 0.65) 0%,
+            rgba(15, 45, 75, 0.35) 40%,
+            rgba(40, 50, 60, 0.1) 100%
+    );
+
+    background-size: 200% 200%;
+    animation: heroGradientShift 12s ease infinite;
+}
+
+@keyframes heroGradientShift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: var(--fs-h1);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #ffffff, var(--teal-400), #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from { filter: drop-shadow(0 0 10px rgba(45, 212, 191, 0.4)); }
+    to { filter: drop-shadow(0 0 20px rgba(45, 212, 191, 0.7)); }
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    max-width: 70ch;
+    margin: 0 auto 2.5rem;
+    color: var(--ink-100);
+    line-height: 1.7;
+}
+
+/* Glass CTA Bar */
+.hero-cta-bar {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1.5rem 2rem;
+    margin: 2rem auto 0;
+    max-width: 560px;
+    background: var(--backdrop-color);
+    backdrop-filter: blur(var(--backdrop-blur));
+    border-radius: var(--radius);
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    box-shadow: var(--shadow-1);
+}
+
+/* Section Title Underline Accent */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem !important;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: var(--underline-h);
+    background: var(--teal-400);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(45, 212, 191, 0.6);
+}
+
+/* Container & Padding */
+.container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+}
+
+
+/* Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s var(--anim-med) cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s var(--anim-med) cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* Grids */
+.pillars-grid,
+.paths-grid,
+.trust-grid,
+.edu-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin-top: 3rem;
+}
+
+/* Cards – Flashy Hover */
+.pillar-card,
+.path-card,
+.trust-card,
+.edu-card,
+.testimonial-card {
+    background: var(--surface-alt);
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(45, 212, 191, 0.15);
+    transition: all var(--anim-med) ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.pillar-card::before,
+.path-card::before,
+.edu-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, transparent, var(--teal-400), transparent);
+    transform: scaleX(0);
+    transition: transform var(--anim-med) ease;
+}
+
+.pillar-card:hover::before,
+.path-card:hover::before,
+.edu-card:hover::before {
+    transform: scaleX(1);
+}
+
+.pillar-card:hover,
+.path-card:hover,
+.trust-card:hover,
+.edu-card:hover,
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-2);
+    border-color: var(--teal-400);
+}
+
+.edu-card {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.edu-card h3 {
+    margin: 0 0 0.75rem;
+    color: var(--teal-400);
+}
+
+/* Buttons – Glowing */
+.btn {
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    text-align: center;
+    transition: all var(--anim-fast) ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
+    transform: translateX(-100%);
+    transition: transform var(--anim-med) ease;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    transform: translateX(100%);
+}
+
+.btn-primary {
+    background: var(--teal-500);
+    color: white;
+    box-shadow: 0 0 20px rgba(20, 180, 166, 0.4);
+}
+
+.btn-primary:hover {
+    background: var(--teal-400);
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(45, 212, 191, 0.7);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--teal-400);
+    border: 2px solid var(--teal-400);
+}
+
+.btn-secondary:hover {
+    background: var(--teal-400);
+    color: var(--navy-900);
+    box-shadow: 0 0 20px rgba(45, 212, 191, 0.5);
+}
+
+.btn-disabled {
+    background: var(--gray-700);
+    color: var(--gray-400);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Lead Magnet Box */
+.lead-box {
+    background: rgba(20, 43, 63, 0.4);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    border-radius: var(--radius);
+    padding: 3rem 2rem;
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-1);
+}
+
+.lead-form {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.lead-form input {
+    flex: 1;
+    min-width: 240px;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid var(--teal-400);
+    border-radius: var(--radius-sm);
+    background: rgba(11, 27, 42, 0.6);
+    color: white;
+    font-size: 1rem;
+}
+
+.lead-form input::placeholder {
+    color: var(--muted);
+}
+
+.note {
+    font-size: 0.875rem;
+    color: var(--ink-300);
+    margin-top: 1rem;
+}
+
+/* Testimonial Styling */
+.testimonials {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    margin-top: 3rem;
+}
+
+.testimonial-card {
+    background: var(--surface-alt);
+    padding: 1.75rem;
+    border-radius: var(--radius);
+    border-left: 4px solid var(--teal-400);
+    font-style: italic;
+}
+
+.author {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: var(--teal-400);
+    font-style: normal;
+    font-size: 0.9rem;
+}
+
+/* Tag */
+.tag {
+    background: var(--teal-500);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+/* Final CTA */
+.home-final-cta {
+    background: linear-gradient(135deg, var(--navy-800), var(--navy-900));
+    text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .hero-cta-bar {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+    .btn {
+        width: 100%;
+    }
+    .lead-form {
+        flex-direction: column;
+    }
+}

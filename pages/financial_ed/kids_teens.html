@@ -48,31 +48,30 @@
 <div id="site-header"></div>
 
 <main class="wrap">
-    <header class="page-header">
+    <!-- Hero -->
+    <header class="page-hero reveal">
         <h1 class="page-title">Kids & Teens: Building Smart Money Habits</h1>
         <p class="lead">
             Empowering the next generation with confidence, curiosity, and skills to make wise money choices.
-            <br>
-            <span style="font-size:0.9rem; color:var(--muted);">Source references:
-        <a href="https://www.fdic.gov/resources/consumers/money-smart/teach.html" target="_blank">FDIC Money Smart</a>,
-        <a href="https://www.consumerfinance.gov/youth-financial-education/" target="_blank">CFPB Youth Financial Education</a>,
-        <a href="https://www.finrafoundation.org/financial-capability-study" target="_blank">FINRA Foundation</a>
-      </span>
         </p>
     </header>
-
-    <section class="content-block" style="margin-top:40px;">
+    <p class="sources-inline">
+        Source references:
+        <a href="https://www.fdic.gov/resources/consumers/money-smart/teach.html" target="_blank" rel="noopener">FDIC Money Smart</a>,
+        <a href="https://www.consumerfinance.gov/youth-financial-education/" target="_blank" rel="noopener">CFPB Youth Financial Education</a>,
+        <a href="https://www.finrafoundation.org/financial-capability-study" target="_blank" rel="noopener">FINRA Foundation</a>
+    </p>
+    <!-- Kids Section -->
+    <section class="flashy-section reveal delay-1">
         <h2>For Kids (Ages 6–12)</h2>
-        <p>
-            Kids learn best through play and examples. Introducing money basics at a young age builds a foundation for lifelong financial wellness.
-        </p>
+        <p>Kids learn best through play and examples. Introducing money basics at a young age builds a foundation for lifelong financial wellness.</p>
 
-        <table class="info-table">
+        <table class="table-flashy mt-3">
             <thead>
             <tr>
-                <th>Concept</th>
-                <th>Activity</th>
-                <th>Goal</th>
+                <th><i data-feather="lightbulb" class="icon"></i> Concept</th>
+                <th><i data-feather="gamepad-2" class="icon"></i> Activity</th>
+                <th><i data-feather="target" class="icon"></i> Goal</th>
             </tr>
             </thead>
             <tbody>
@@ -95,13 +94,12 @@
         </table>
     </section>
 
-    <section class="content-block" style="margin-top:60px;">
+    <!-- Teens Section -->
+    <section class="flashy-section reveal delay-2">
         <h2>For Teens (Ages 13–18)</h2>
-        <p>
-            Teens begin handling real money decisions — earning from part-time jobs, using debit cards, or planning for college. Early financial literacy helps them manage credit, spending, and savings responsibly.
-        </p>
+        <p>Teens begin handling real money decisions — earning from part-time jobs, using debit cards, or planning for college. Early financial literacy helps them manage credit, spending, and savings responsibly.</p>
 
-        <table class="info-table">
+        <table class="table-flashy">
             <thead>
             <tr>
                 <th>Topic</th>
@@ -117,7 +115,7 @@
             </tr>
             <tr>
                 <td><strong>Understanding Credit</strong></td>
-                <td>Use credit-score simulators (like <a href="https://www.mycreditunion.gov" target="_blank">MyCreditUnion.gov</a>).</td>
+                <td>Use credit-score simulators (like <a href="https://www.mycreditunion.gov" target="_blank" rel="noopener">MyCreditUnion.gov</a>).</td>
                 <td>Builds understanding of borrowing responsibly.</td>
             </tr>
             <tr>
@@ -129,51 +127,46 @@
         </table>
     </section>
 
-    <section class="interactive-section" style="margin-top:60px;">
+    <!-- Interactive Calculator -->
+    <section class="interactive-section reveal delay-3">
         <h2>Try This: Your First Budget</h2>
         <p>Use this simple calculator to see how your weekly allowance or job income can be split:</p>
-        <div id="budget-calculator" class="card p-4" style="max-width:400px;">
-            <label for="incomeInput">Weekly Income ($):</label>
-            <input id="incomeInput" type="number" min="0" placeholder="Enter amount" style="width:100%; padding:8px; margin:8px 0;">
-            <button id="calcBtn" class="btn-primary" style="width:100%; padding:10px;">Calculate 50/30/20 Split</button>
 
-            <div id="results" style="margin-top:15px; display:none;">
-                <p><strong>Needs (50%):</strong> $<span id="needsAmt"></span></p>
-                <p><strong>Wants (30%):</strong> $<span id="wantsAmt"></span></p>
-                <p><strong>Savings (20%):</strong> $<span id="savingsAmt"></span></p>
+        <div class="calc-flashy">
+            <h3>50/30/20 Budget Calculator</h3>
+            <label for="income">Monthly Take-Home Income ($)</label>
+            <input type="number" id="income" placeholder="e.g. 5000" min="0" step="0.01">
+
+            <button id="calcBtn" class="btn-glow">Calculate</button>
+
+            <div id="results" class="calc-results">
+                <p><strong>Needs (50%):</strong> $<span id="needs">0.00</span></p>
+                <p><strong>Wants (30%):</strong> $<span id="wants">0.00</span></p>
+                <p><strong>Savings/Debt (20%):</strong> $<span id="savings">0.00</span></p>
             </div>
         </div>
     </section>
 
-    <section class="resources" style="margin-top:60px;">
+    <!-- Resources -->
+    <section class="resources reveal delay-1">
         <h2>Trusted Learning Resources</h2>
-        <ul>
-            <li><a href="https://www.consumerfinance.gov/youth-financial-education/" target="_blank">CFPB Youth Financial Education Portal</a></li>
-            <li><a href="https://www.fdic.gov/resources/consumers/money-smart/teach.html" target="_blank">FDIC Money Smart for Young People</a></li>
-            <li><a href="https://www.jumpstart.org/" target="_blank">Jump$tart Coalition for Personal Financial Literacy</a></li>
+        <ul class="flashy-list">
+            <li><a href="https://www.consumerfinance.gov/youth-financial-education/" target="_blank" rel="noopener">CFPB Youth Financial Education Portal</a></li>
+            <li><a href="https://www.fdic.gov/resources/consumers/money-smart/teach.html" target="_blank" rel="noopener">FDIC Money Smart for Young People</a></li>
+            <li><a href="https://www.jumpstart.org/" target="_blank" rel="noopener">Jump$tart Coalition for Personal Financial Literacy</a></li>
         </ul>
     </section>
+
 </main>
 
 <div id="site-footer"></div>
-
-<!-- Core Scripts -->
-<script type="module" src="/assets/js/core.js" defer></script>
-<script type="module" src="/assets/js/pages/financial_ed.js" defer></script>
-
-<!-- Inline Calculator Script -->
-<script>
-    document.getElementById("calcBtn").addEventListener("click", function() {
-        const income = parseFloat(document.getElementById("incomeInput").value);
-        if (isNaN(income) || income <= 0) {
-            alert("Please enter a valid income amount.");
-            return;
-        }
-        document.getElementById("needsAmt").textContent = (income * 0.5).toFixed(2);
-        document.getElementById("wantsAmt").textContent = (income * 0.3).toFixed(2);
-        document.getElementById("savingsAmt").textContent = (income * 0.2).toFixed(2);
-        document.getElementById("results").style.display = "block";
-    });
-</script>
 </body>
+<!-- Core Scripts -->
+<script type="module" src="/assets/js/core.js"></script>
+<script type="module" src="/assets/js/pages/financial_ed.js"></script>
+<script type="module">
+    import { initBudgetCalculator } from '/assets/js/pages/financial_ed.js';
+
+    initBudgetCalculator('income', 'calcBtn', 'needs', 'wants', 'savings', 'results');
+</script>
 </html>

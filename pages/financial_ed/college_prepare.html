@@ -14,6 +14,9 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/style.css" />
+  <!-- Feather Icons CDN -->
+
+
 
   <!-- Open Graph -->
   <meta property="og:title" content="Preparing for College – V & V Brothers LLC" />
@@ -48,25 +51,24 @@
 <div id="site-header"></div>
 
 <main class="wrap">
-  <h1 class="page-title">Preparing for College</h1>
-  <p class="lead">
-    Preparing for college is one of the most important financial steps families can take.
-    V & V Brothers LLC is dedicated to empowering families with clear, trustworthy strategies for
-    saving, applying for financial aid, and making informed decisions that keep higher education affordable.
-  </p>
+
+  <!-- HERO -->
+  <header class="page-hero reveal">
+    <h1 class="page-title">Preparing for College</h1>
+    <p class="lead">
+      V & V Brothers LLC is dedicated to empowering families with clear, trustworthy strategies for
+      saving, applying for financial aid, and making informed decisions that keep higher education affordable.
+    </p>
+  </header>
 
   <!-- Section 1: Early Planning -->
-  <section style="margin-top: 40px;">
-    <h2>Start Early: Building a College Savings Plan</h2>
+  <section class="section-flashy reveal delay-2">
+    <h2><i data-feather="calendar" class="icon"></i> Start Early: Building a College Savings Plan</h2>
     <p>
       The sooner you start saving, the more time your money has to grow through compounding.
       Explore options like <strong>529 College Savings Plans</strong> and <strong>Coverdell Education Savings Accounts</strong>.
     </p>
-    <p style="font-size: 0.9rem; color: var(--muted);">
-      Source: <a href="https://www.sec.gov/reportspubs/investor-publications/investorpubs529htm.html" target="_blank" rel="noopener">U.S. Securities and Exchange Commission (SEC)</a>
-    </p>
-
-    <table class="financial-table">
+    <table class="table-flashy">
       <thead>
       <tr>
         <th>Plan Type</th>
@@ -87,11 +89,14 @@
       </tr>
       </tbody>
     </table>
+    <p class="source">
+      Source: <a href="https://www.sec.gov/reportspubs/investor-publications/investorpubs529htm.html" target="_blank" rel="noopener">U.S. Securities and Exchange Commission (SEC)</a>
+    </p>
   </section>
 
-  <!-- Section 2: Understanding Financial Aid -->
-  <section style="margin-top: 60px;">
-    <h2>Understanding Financial Aid & FAFSA</h2>
+  <!-- Section 2: FAFSA -->
+  <section class="section-flashy reveal delay-3">
+    <h2><i data-feather="file-text" class="icon"></i> Understanding Financial Aid & FAFSA</h2>
     <p>
       Completing the <strong>Free Application for Federal Student Aid (FAFSA)</strong> is essential for accessing grants,
       scholarships, and low-interest federal loans. Apply early — many states and schools have priority deadlines.
@@ -100,20 +105,19 @@
       You can estimate your eligibility with the
       <a href="https://studentaid.gov/aid-estimator/" target="_blank" rel="noopener">Federal Student Aid Estimator</a>.
     </p>
-    <p style="font-size: 0.9rem; color: var(--muted);">
+    <p class="source">
       Source: <a href="https://studentaid.gov/" target="_blank" rel="noopener">U.S. Department of Education</a>
     </p>
   </section>
 
-  <!-- Section 3: Budgeting for College Life -->
-  <section style="margin-top: 60px;">
-    <h2>Budgeting for College Life</h2>
+  <!-- Section 3: Budgeting -->
+  <section class="section-flashy reveal delay-1">
+    <h2><i data-feather="dollar-sign" class="icon"></i> Budgeting for College Life</h2>
     <p>
       Encourage students to plan monthly budgets that balance tuition, housing, meals, transportation, and personal spending.
       Practicing financial discipline now sets lifelong habits for success.
     </p>
-
-    <table class="budget-table">
+    <table class="table-flashy">
       <thead>
       <tr>
         <th>Expense Category</th>
@@ -127,46 +131,34 @@
       <tr><td>Transportation</td><td>$1,000</td></tr>
       </tbody>
     </table>
-
-    <p style="font-size: 0.9rem; color: var(--muted);">
+    <p class="source">
       Source: <a href="https://educationdata.org/average-cost-of-college" target="_blank" rel="noopener">EducationData.org</a>
     </p>
   </section>
 
-  <!-- Section 4: Interactive Savings Calculator -->
-  <section style="margin-top: 60px;">
-    <h2>College Savings Growth Estimator</h2>
+  <!-- Section 4: Calculator -->
+  <section class="section-flashy reveal delay-2">
+    <h2><i data-feather="trending-up" class="icon"></i> College Savings Growth Estimator</h2>
     <p>Estimate how much your college fund can grow over time based on your monthly contribution.</p>
-    <div class="calculator">
-      <label>Monthly Contribution ($): <input type="number" id="monthly" value="200"></label><br>
-      <label>Years to Save: <input type="number" id="years" value="10"></label><br>
-      <label>Annual Interest Rate (%): <input type="number" id="rate" value="5"></label><br>
-      <button id="calcBtn">Estimate Growth</button>
+    <div class="calc-flashy">
+      <label>Monthly Contribution ($): <input type="number" id="monthly" value="200"></label>
+      <label>Years to Save: <input type="number" id="years" value="10"></label>
+      <label>Annual Interest Rate (%): <input type="number" id="rate" value="5"></label>
+      <button id="calcBtn" class="btn-glow">Estimate Growth</button>
       <p id="calcResult" class="calc-output"></p>
     </div>
-
-    <script>
-      document.getElementById("calcBtn").addEventListener("click", () => {
-        const monthly = parseFloat(document.getElementById("monthly").value);
-        const years = parseFloat(document.getElementById("years").value);
-        const rate = parseFloat(document.getElementById("rate").value) / 100 / 12;
-        const months = years * 12;
-        const futureValue = monthly * ((Math.pow(1 + rate, months) - 1) / rate);
-        document.getElementById("calcResult").textContent =
-                `Estimated savings after ${years} years: $${futureValue.toFixed(2).toLocaleString()}`;
-      });
-    </script>
   </section>
 
-  <!-- Section 5: Additional Resources -->
-  <section style="margin-top: 60px;">
-    <h2>Trusted Resources for Further Learning</h2>
-    <ul>
+  <!-- Section 5: Resources -->
+  <section class="section-flashy reveal delay-3">
+    <h2><i data-feather="link" class="icon"></i> Trusted Resources for Further Learning</h2>
+    <ul class="flashy-list">
       <li><a href="https://www.consumerfinance.gov/consumer-tools/money-as-you-grow/" target="_blank" rel="noopener">Consumer Financial Protection Bureau – Money as You Grow</a></li>
       <li><a href="https://bigfuture.collegeboard.org/" target="_blank" rel="noopener">College Board – BigFuture Planning Tools</a></li>
       <li><a href="https://www.ed.gov/" target="_blank" rel="noopener">U.S. Department of Education</a></li>
     </ul>
   </section>
+
 </main>
 
 <div id="site-footer"></div>

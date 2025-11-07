@@ -32,8 +32,8 @@
   <meta name="twitter:title" content="Life Insurance: Term vs Whole – V & V Brothers LLC" />
   <meta name="twitter:description" content="Learn which type of life insurance — Term or Whole — fits your goals best. Grounded insights from V & V Brothers LLC." />
   <meta name="twitter:image" content="../assets/img/social/life_insurance.jpg" />
+  <!-- Flashy Enhancements (Non-conflicting) -->
 
-  <!-- JSON-LD Schema added dynamically -->
   <script type="module">
     import { addJSONLDSchema } from "/assets/js/components/google_seo_json.js";
 
@@ -46,22 +46,30 @@
       });
     });
   </script>
+
+
 </head>
 
 <body>
 <div id="site-header"></div>
 
+<!-- Main Content -->
 <main class="wrap">
-  <h1 class="page-title">Life Insurance: Term vs Whole</h1>
-  <p class="lead">
-    Choosing the right life insurance is one of the most important financial decisions you can make.
-    Understanding how <strong>Term Life</strong> and <strong>Whole Life</strong> differ helps you protect
-    your family today — and build generational wealth for tomorrow.
-  </p>
 
-  <!-- Section 1: Overview -->
-  <section class="section" style="margin-top: 40px;">
-    <h2>Understanding the Basics</h2>
+  <!-- Hero -->
+  <header class="page-hero reveal">
+    <h1 class="page-title">Life Insurance: Term vs Whole</h1>
+    <p class="lead">
+      Choosing the right life insurance is one of the most important financial decisions you can make.
+      Understanding how <strong>Term Life</strong> and <strong>Whole Life</strong> differ helps you protect
+      your family today — and build generational wealth for tomorrow.
+    </p>
+  </header>
+
+
+  <!-- Overview -->
+  <section class="flashy-section reveal delay-1">
+    <h3>Understanding the Basics</h3>
     <p>
       Life insurance provides financial security for your loved ones in the event of your passing.
       Term life insurance offers coverage for a specific period (like 10, 20, or 30 years), while
@@ -69,12 +77,11 @@
     </p>
   </section>
 
-  <!-- Section 2: Comparison Table -->
-  <section class="section" style="margin-top: 40px;">
+  <!-- Comparison Table -->
+  <section class="flashy-section reveal delay-1">
     <h2>Term Life vs Whole Life — Side-by-Side Comparison</h2>
-
-    <div class="responsive-table" style="overflow-x:auto;">
-      <table class="comparison-table">
+    <div style="overflow-x:auto;">
+      <table class="flashy-table">
         <thead>
         <tr>
           <th>Feature</th>
@@ -118,8 +125,8 @@
     </div>
   </section>
 
-  <!-- Section 3: Guidance -->
-  <section class="section" style="margin-top: 40px;">
+  <!-- Guidance -->
+  <section class="flashy-section reveal delay-1">
     <h2>Which One Is Right for You?</h2>
     <p>
       The right choice depends on your goals, stage of life, and financial strategy.
@@ -128,19 +135,37 @@
       <strong>Whole Life</strong> may be the better fit.
     </p>
 
-    <ul>
-      <li><strong>Young Families:</strong> Term life often provides higher coverage at lower cost.</li>
-      <li><strong>High Net Worth Individuals:</strong> Whole life can support estate or tax planning.</li>
-      <li><strong>Business Owners:</strong> Whole life may provide liquidity for buy-sell agreements.</li>
-    </ul>
+    <div style="display: grid; gap: 1.5rem; margin: 2rem 0; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      <div class="flashy-card">
+        <i data-feather="users"></i>
+        <div>
+          <h3>Young Families</h3>
+          <p>Term life often provides higher coverage at lower cost.</p>
+        </div>
+      </div>
+      <div class="flashy-card">
+        <i data-feather="trending-up"></i>
+        <div>
+          <h3>High Net Worth</h3>
+          <p>Whole life can support estate or tax planning.</p>
+        </div>
+      </div>
+      <div class="flashy-card">
+        <i data-feather="briefcase"></i>
+        <div>
+          <h3>Business Owners</h3>
+          <p>Whole life may provide liquidity for buy-sell agreements.</p>
+        </div>
+      </div>
+    </div>
 
     <blockquote class="insight">
       “The best policy is the one that fits your life stage and ensures your loved ones’ financial security.”
     </blockquote>
   </section>
 
-  <!-- Section 4: Trusted Resources -->
-  <section class="section" style="margin-top: 40px;">
+  <!-- Resources -->
+  <section class="flashy-section reveal delay-1">
     <h2>Learn More from Reliable Sources</h2>
     <ul class="source-list">
       <li><a href="https://www.naic.org/consumer/life-insurance.htm" target="_blank" rel="noopener">National Association of Insurance Commissioners (NAIC): Understanding Life Insurance</a></li>
@@ -149,21 +174,20 @@
     </ul>
   </section>
 
-  <!-- Section 5: Call to Action -->
-  <section class="section cta" style="margin-top: 60px; text-align:center;">
+  <!-- CTA -->
+  <section class="section-flashy cta reveal delay-2">
     <h2>Ready to Protect What Matters Most?</h2>
     <p>
       V & V Brothers LLC is dedicated to empowering families with the right protection and wealth-building tools.
       Let’s discuss your life insurance goals and craft a plan that aligns with your future.
     </p>
-    <a href="/pages/contact.html" class="btn-primary">Schedule a Free Consultation</a>
+    <a href="/pages/contact.html" class="btn-glow">Schedule a Free Consultation</a>
   </section>
 
 </main>
 
 <div id="site-footer"></div>
 
-<!-- Core Scripts -->
 <script type="module" src="/assets/js/core.js" defer></script>
 <script type="module" src="/assets/js/pages/financial_ed.js" defer></script>
 </body>

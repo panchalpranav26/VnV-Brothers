@@ -14,6 +14,8 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/style.css" />
+  <!-- Feather Icons -->
+
 
   <!-- Open Graph -->
   <meta property="og:title" content="Family Financial Planning – V & V Brothers LLC" />
@@ -55,11 +57,17 @@
 <div id="site-header"></div>
 
 <main class="wrap">
-  <h1 class="page-title">Family Financial Planning</h1>
-  <p class="lead">Empowering families to build lasting financial stability through education, discipline, and protection.</p>
+
+  <!-- HERO -->
+  <header class="page-hero reveal">
+    <h1 class="page-title">Family Financial Planning</h1>
+    <p class="lead">
+      Empowering families to build lasting financial stability through education, discipline, and protection.
+    </p>
+  </header>
 
   <!-- SECTION 1: INTRO -->
-  <section class="intro">
+  <section class="flashy-section intro reveal delay-1">
     <h2>Why Family Financial Planning Matters</h2>
     <p>
       Financial planning is not about wealth—it’s about wellness and preparedness. Every family deserves a clear roadmap to handle
@@ -71,15 +79,15 @@
     </p>
   </section>
 
-  <!-- SECTION 2: FINANCIAL FOUNDATION TABLE -->
-  <section class="foundation" style="margin-top: 40px;">
+  <!-- SECTION 2: FOUNDATION TABLE -->
+  <section class="flashy-section foundation reveal delay-2">
     <h2>Core Elements of a Healthy Family Plan</h2>
     <table class="info-table">
       <thead>
       <tr>
-        <th>Category</th>
-        <th>Purpose</th>
-        <th>Tips</th>
+        <th><i data-feather="tag"></i> Category</th>
+        <th><i data-feather="target"></i> Purpose</th>
+        <th><i data-feather="lightbulb"></i> Tips</th>
       </tr>
       </thead>
       <tbody>
@@ -110,32 +118,35 @@
       </tr>
       </tbody>
     </table>
-    <p style="font-size: 0.9rem; color: var(--muted);">
+    <p class="sources">
       Sources:
-      <a href="https://www.consumerfinance.gov/" target="_blank">Consumer Financial Protection Bureau (CFPB)</a>,
-      <a href="https://www.investor.gov/" target="_blank">U.S. SEC Investor.gov</a>,
-      <a href="https://www.fdic.gov/resources/consumers/" target="_blank">FDIC Financial Education</a>.
+      <a href="https://www.consumerfinance.gov/" target="_blank">CFPB</a>,
+      <a href="https://www.investor.gov/" target="_blank">Investor.gov</a>,
+      <a href="https://www.fdic.gov/resources/consumers/" target="_blank">FDIC</a>.
     </p>
   </section>
 
-  <!-- SECTION 3: INTERACTIVE QUIZ / TOOL -->
-  <section class="interactive" style="margin-top: 50px;">
+  <!-- SECTION 3: INTERACTIVE QUIZ -->
+  <section class="flashy-section interactive reveal delay-3">
     <h2>Quick Family Readiness Check</h2>
     <p>Answer a few simple questions to reflect on your family’s current financial health:</p>
-    <button id="startQuiz" class="btn-primary">Start Self-Check</button>
-    <div id="quizContainer" class="hidden" style="margin-top: 20px;">
-      <ol id="quizList"></ol>
+    <button id="startQuiz" class="btn-glow btn-primary">Start Self-Check</button>
+
+    <div id="quizContainer" class="quiz-container hidden">
+      <ol id="quizList" class="quiz-list"></ol>
     </div>
   </section>
 
   <!-- SECTION 4: CTA -->
-  <section class="cta" style="margin-top: 60px; text-align: center;">
+  <section class="cta reveal delay-4">
     <h2>Ready to Strengthen Your Family’s Financial Future?</h2>
     <p>
-      Explore more educational resources and personalized guidance through our <a href="/pages/financial_ed.html">Financial Education Hub</a>.
+      Explore more educational resources and personalized guidance through our
+      <a href="/pages/financial_ed.html" style="color: var(--teal-400); text-decoration: underline;">Financial Education Hub</a>.
     </p>
-    <a href="/pages/contact.html" class="btn-accent">Talk to a Financial Coach</a>
+    <a href="/pages/contact.html" class="btn-glow btn-accent">Talk to a Financial Coach</a>
   </section>
+
 </main>
 
 <div id="site-footer"></div>
@@ -144,26 +155,5 @@
 <script type="module" src="/assets/js/core.js" defer></script>
 <script type="module" src="/assets/js/pages/financial_ed.js" defer></script>
 
-<!-- Page-Specific JS -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const quizData = [
-      "Do you have a written household budget?",
-      "Do you save at least 10% of your income monthly?",
-      "Do you review insurance coverage annually?",
-      "Have you started retirement or education savings?",
-      "Do you discuss money goals as a family?"
-    ];
-
-    const quizContainer = document.getElementById("quizContainer");
-    const quizList = document.getElementById("quizList");
-    const startBtn = document.getElementById("startQuiz");
-
-    startBtn.addEventListener("click", () => {
-      quizContainer.classList.toggle("hidden");
-      quizList.innerHTML = quizData.map(q => `<li>${q}</li>`).join("");
-    });
-  });
-</script>
 </body>
 </html>

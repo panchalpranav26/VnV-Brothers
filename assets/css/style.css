@@ -11,17 +11,15 @@
 
 /* Component Styles */
 @import "components/nav.css";
+@import "components/mobile-nav.css";
 @import "components/dropdown-pane.css";
 @import "components/footer.css";
 
 /* Page Styles (Start with home.css) */
 @import "pages/home.css";
 /* Add other page styles here */
-@import "pages/financial_ed.css";
-@import "pages/protecting.css";
-@import "pages/wealth.css";
-@import "pages/family.css";
+/*@import "pages/financial_ed.css";
 @import "pages/services.css";
 @import "pages/stories.css";
-@import "pages/about.css";
+@import "pages/about.css"; */
 @import "pages/contact_consult.css";

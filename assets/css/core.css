@@ -16,6 +16,8 @@
     --navy-900: #0b1b2a;
     --navy-800: #11283d;
     --navy-700: #18334c;
+    --navy-600: #20405b;  /* Lighter than 700, still rich navy */
+    --navy-500: #2a4d6c;  /* Mid-navy, good for borders, secondary text, UI accents */
 
     --teal-400: #2dd4bf;
     --teal-500: #14b8a6;
@@ -42,7 +44,6 @@
     --surface: #0d1b2a;     /* Default background */
     --surface-alt: #142b3f; /* Lighter background panels */
     --text: #f1f5f9;        /* Primary text color */
-    --muted: #a0aec0;       /* Secondary text color */
     --radius: 10px;         /* Global border radius */
 
     /* Surface & text */
@@ -51,16 +52,14 @@
     --muted: #bfd0df;
 
     /* Fonts */
-    --font-serif: "Cormorant Garamond", serif;
-    --font-sans: "Inter", sans-serif;
+    --font-serif: Inter, "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+
 
     /* Layout tokens */
-    --maxw: 1200px;
     --pad-x: clamp(16px, 4vw, 28px);
     --nav-h: 68px; /* HD-Comfort */
 
     /* Radii & shadows */
-    --radius: 14px;
     --radius-sm: 10px;
     --shadow-1: 0 6px 20px rgba(0, 0, 0, 0.25);
     --shadow-2: 0 20px 45px rgba(0, 0, 0, 0.35);
@@ -86,7 +85,6 @@
     /* Typography – TS-Elevated scale (serif hero, airy rhythm) */
     --font-ui: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial,
     "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
 
     --fs-base: 16px;
     --fs-lead: 1.05rem;
@@ -98,10 +96,6 @@
     --lh-tight: 1.2;
 }
 
-.dark {
-    --muted: #94a3b8;
-    --surface-alt: #1e293b;
-}
 
 /* ============================================================
    2) BASE / RESET
@@ -120,14 +114,19 @@ html {
 
 body {
     margin: 0;
+    margin-top: 5px;
     color: var(--fg);
-    font-family: var(--font-ui);
     font-size: var(--fs-base);
     line-height: var(--lh-base);
     background:
-            radial-gradient(1400px 600px at 80% -100px, #144b45 0%, transparent 60%),
-            radial-gradient(1000px 500px at 10% -120px, #10304a 0%, transparent 60%),
-            linear-gradient(180deg, var(--navy-900), var(--navy-800));
+        /* Teal glow on top-right */
+            radial-gradient(1300px 600px at 85% -50px, rgba(20, 150, 130, 0.45) 0%, transparent 65%),
+
+                /* Navy glow on top-left */
+            radial-gradient(1200px 600px at 15% -50px, rgba(15, 45, 75, 0.55) 0%, transparent 70%),
+
+                /* Base vertical gradient: TOP navy → BOTTOM gray */
+            linear-gradient(180deg, var(--navy-800) 0%, var(--gray-600) 45%, var(--gray-300) 100%);
     min-height: 100vh;
 }
 
@@ -145,7 +144,7 @@ button:focus {
 }
 
 /* Page typography */
-h1, h2, h3 {
+h1, h2, h3, h4, p, a, table, th, td, ul, li, ol {
     font-family: var(--font-serif), serif;
     letter-spacing: 0.3px;
     margin: 0 0 0.4em 0;
@@ -159,3 +158,330 @@ h3 { font-size: var(--fs-h3); line-height: 1.28; }
     font-size: var(--fs-lead);
     max-width: 60ch;
 }
+
+
+/* ============================================================
+   flashy-components.css
+   Page-specific flashy UI components
+   DEPENDS ON: core.css
+   ============================================================ */
+
+
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%232dd4bf" opacity="0.3"/><circle cx="80" cy="80" r="3" fill="%2314b8a6" opacity="0.2"/></svg>') repeat;
+    opacity: 0.1;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    from { transform: translate(0, 0); }
+    to { transform: translate(100px, -100px); }
+}
+
+.page-header h1 {
+    font-size: var(--fs-h1);
+    margin: 0 0 1rem;
+    background: linear-gradient(90deg, #ffffff, var(--teal-400), #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from { filter: drop-shadow(0 0 10px rgba(45, 212, 191, 0.4)); }
+    to { filter: drop-shadow(0 0 20px rgba(45, 212, 191, 0.7)); }
+}
+
+.page-header .lead {
+    max-width: 70ch;
+    margin: 0 auto;
+    color: var(--ink-100);
+}
+
+/* Section Title Underline */
+h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem !important;
+    color: var(--teal-400);
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 60px; height: var(--underline-h);
+    background: var(--teal-400);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(45, 212, 191, 0.6);
+}
+
+/* Two-column Grid */
+.grid.two-cols {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .grid.two-cols { grid-template-columns: 1fr; }
+}
+
+/* Images */
+.rounded.shadow-lg {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-2);
+    width: 100%;
+    height: auto;
+    transition: transform var(--anim-med) ease;
+}
+
+.rounded.shadow-lg:hover {
+    transform: scale(1.02);
+}
+
+
+/* Icon Placeholder */
+.icon-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    background: var(--surface-alt);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-2);
+    transition: all var(--anim-med) ease;
+}
+
+.icon-placeholder:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 30px rgba(45, 212, 191, 0.4);
+    background: rgba(20, 180, 166, 0.08);
+}
+
+.icon-large {
+    width: 120px; height: 120px;
+    color: var(--teal-400);
+    stroke-width: 1.8;
+    margin-bottom: 1rem;
+    transition: all var(--anim-med) ease;
+}
+
+.icon-large:hover {
+    color: var(--teal-500);
+    transform: scale(1.15) rotate(5deg);
+    filter: drop-shadow(0 0 15px rgba(45, 212, 191, 0.5));
+}
+
+.icon-caption {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 280px;
+    margin: 0;
+}
+
+/* CTA */
+.cta {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--navy-800), var(--navy-900));
+    border-radius: var(--radius);
+    margin: 3rem 0;
+}
+
+/* Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s var(--anim-med) cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s var(--anim-med) cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+/* Spacing */
+.mt-3 { margin-top: 1rem; }
+.mt-5 { margin-top: 2.5rem; }
+.mt-6 { margin-top: 3rem; }
+
+
+/* ============================================================
+   LUXE-GLASS FLOATING PAGE TOC (POS-L)
+   Compact | Frosted | Teal Glow | A2-Luxe Premium
+   ============================================================ */
+
+.page-toc--left {
+    position: fixed;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 185px;
+    font-family: var(--font-serif), serif;
+
+    /* Subtle glass card inside the pane */
+    background:
+            linear-gradient(180deg,
+            rgba(255, 255, 255, 0.14),
+            rgba(255, 255, 255, 0.04)
+            );
+
+    backdrop-filter: blur(10px) saturate(145%);
+
+    border: 1px solid rgba(45, 212, 191, 0.32);
+    border-radius: 10px;
+    padding: 10px 12px;
+    box-shadow:
+            0 8px 28px rgba(0, 0, 0, 0.45),
+            0 0 14px rgba(45, 212, 191, 0.25);
+
+    z-index: 9999;
+    max-height: 65vh;
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--teal-500) rgba(255,255,255,0.06);
+}
+
+/* Scrollbar (WebKit) */
+.page-toc--left::-webkit-scrollbar {
+    width: 6px;
+}
+.page-toc--left::-webkit-scrollbar-thumb {
+    background: var(--teal-500);
+    border-radius: 20px;
+}
+.page-toc--left::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+}
+
+/* ------------------------------------------------------------
+   HEADER — Page Title Tag
+------------------------------------------------------------ */
+.page-toc__header {
+    margin-bottom: 8px;
+}
+
+
+/* ===================================================================
+   PAGE TOC — TITLE ADAPTIVE GLOW (B1: Title-Only Styles)
+   States: default → soft-active → neutral
+   =================================================================== */
+
+/* DEFAULT (before TOC activation)
+   - Frosted surface
+   - Teal aura
+   - Stronger readability
+-------------------------------------------------------------- */
+.page-toc__title {
+    background:
+            linear-gradient(135deg,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(45, 212, 191, 0.12) 100%);
+    color: var(--white);
+    border: 1px solid rgba(45, 212, 191, 0.28);
+    box-shadow: 0 0 8px rgba(45, 212, 191, 0.25);
+
+    font-weight: 700;
+    text-align: center;
+    border-radius: 6px;
+    padding: 6px 8px;
+    margin-bottom: 8px;
+
+    backdrop-filter: blur(6px) saturate(130%);
+    transition: background 0.28s ease, box-shadow 0.28s ease, color 0.28s ease, border-color 0.28s ease;
+}
+
+/* SOFT-ACTIVE (after TOC activates but before first section is highlighted)
+   - Re-Glow moment
+   - Strong teal emphasis
+-------------------------------------------------------------- */
+.page-toc__title.soft-active {
+    background:
+            linear-gradient(135deg,
+            rgba(45, 212, 191, 0.18) 0%,
+            rgba(45, 212, 191, 0.28) 100%);
+    border-color: rgba(45, 212, 191, 0.42);
+    box-shadow: 0 0 10px rgba(45, 212, 191, 0.45);
+    color: var(--white);
+}
+
+/* NEUTRAL (after first section becomes active)
+   - Subtle, blended with sidebar
+   - Title becomes supportive, not dominant
+-------------------------------------------------------------- */
+.page-toc__title.neutral {
+    background:
+            linear-gradient(135deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(45, 212, 191, 0.06) 100%);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: var(--ink-100);
+    box-shadow: none;
+}
+
+
+
+/* Divider line */
+.page-toc__divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    margin-bottom: 8px;
+    border-radius: 2px;
+}
+
+/* ------------------------------------------------------------
+   LINKS
+------------------------------------------------------------ */
+.page-toc--left ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.page-toc--left a {
+    display: block;
+    padding: 5px 6px;
+    font-size: 0.78rem;
+    color: var(--ink-100);
+    text-decoration: none;
+    border-radius: 5px;
+    line-height: 1.28;
+    transition: 0.25s ease;
+}
+
+/* Hover + Active States */
+.page-toc--left a:hover,
+.page-toc--left a.active {
+    background:
+            linear-gradient(90deg,
+            rgba(45, 212, 191, 0.28) 0%,
+            rgba(45, 212, 191, 0.18) 100%
+            );
+    color: var(--white);
+    box-shadow: 0 0 6px rgba(45, 212, 191, 0.45);
+}
+
+/* Hide Floating TOC on Mobile/Tablet (<981px) */
+@media (max-width: 980px) {
+    .page-toc--left {
+        display: none !important;
+    }
+}
+

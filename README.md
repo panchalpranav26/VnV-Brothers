@@ -17,7 +17,7 @@ This project implements the multi-page static website for **V & V Brothers LLC**
 | `stories.html` | `/pages/` | Testimonials and success stories. |
 | `about.html` | `/pages/` | About – mission, credentials, ethics. |
 | `contact.html` | `/pages/` | Contact form integrated with Netlify Function. |
-| `book_consultation.html` | `/pages/` | Consultation booking form. |
+| `consultation.html` | `/pages/` | Consultation booking form. |
 | `assets/css/` | `/` | Modular CSS (core, layout, components, pages). |
 | `assets/js/` | `/` | Core logic and page-specific scripts. |
 | `netlify/functions/` | `/` | TypeScript serverless functions for form handling. |

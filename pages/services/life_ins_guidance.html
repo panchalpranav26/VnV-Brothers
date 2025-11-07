@@ -15,6 +15,10 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/style.css" />
 
+    <!-- Feather Icons -->
+
+
+
     <!-- Open Graph -->
     <meta property="og:title" content="Life Insurance Guidance – V & V Brothers LLC" />
     <meta property="og:description" content="Explore how life insurance protects your family’s financial future and supports long-term wealth strategies." />
@@ -58,7 +62,9 @@
 <!-- MAIN CONTENT -->
 <!-- ============================= -->
 <main class="wrap">
-    <header class="page-hero">
+
+    <!-- HERO -->
+    <header class="page-hero reveal">
         <h1 class="page-title">Life Insurance Guidance</h1>
         <p class="lead">
             Protecting your family’s financial future starts with the right life insurance plan.
@@ -66,25 +72,25 @@
         </p>
     </header>
 
-    <!-- Section 1: Overview -->
-    <section style="margin-top: 40px;">
+    <!-- SECTION 1: Why Life Insurance -->
+    <section class="flashy-section reveal delay-1">
         <h2>Why Life Insurance Matters</h2>
         <p>
             Life insurance helps your loved ones maintain financial stability in the event of your passing. It replaces lost income, covers debts,
             and funds essential goals such as education or retirement. Understanding your options ensures you make an informed decision aligned
             with your family's needs and financial plan.
         </p>
-        <p style="font-size: 0.9rem; color: var(--muted);">
+        <p class="source-note">
             Source: <a href="https://www.naic.org/consumer.htm" target="_blank">National Association of Insurance Commissioners (NAIC)</a>
         </p>
     </section>
 
-    <!-- Section 2: Types of Life Insurance -->
-    <section style="margin-top: 40px;">
+    <!-- SECTION 2: Types of Life Insurance -->
+    <section class="flashy-section reveal delay-2">
         <h2>Types of Life Insurance</h2>
         <p>There are two primary categories of life insurance—each serves a unique purpose in a family’s financial strategy.</p>
 
-        <table class="info-table">
+        <table class="table-flashy">
             <thead>
             <tr>
                 <th>Type</th>
@@ -109,56 +115,68 @@
             </tbody>
         </table>
 
-        <p style="font-size: 0.9rem; color: var(--muted);">
+        <p class="source-note">
             Source: <a href="https://www.investopedia.com/terms/l/lifeinsurance.asp" target="_blank">Investopedia: Life Insurance Explained</a>
         </p>
     </section>
 
-    <!-- Section 3: Choosing the Right Policy -->
-    <section style="margin-top: 40px;">
+    <!-- SECTION 3: Choosing the Right Policy -->
+    <section class="flashy-section reveal delay-3">
         <h2>Choosing the Right Policy</h2>
         <p>
             Selecting a policy depends on your financial goals, dependents, debts, and future plans.
             We recommend evaluating the following:
         </p>
-        <ul class="checklist">
-            <li>✅ Your family’s income needs and current liabilities</li>
-            <li>✅ Long-term goals such as education or home ownership</li>
-            <li>✅ Balance between coverage affordability and duration</li>
-            <li>✅ Presence of existing assets or savings</li>
+        <ul class="checkflashy-list">
+            <li><i class="icon-check" data-feather="check-circle"></i> Your family’s income needs and current liabilities</li>
+            <li><i class="icon-check" data-feather="check-circle"></i> Long-term goals such as education or home ownership</li>
+            <li><i class="icon-check" data-feather="check-circle"></i> Balance between coverage affordability and duration</li>
+            <li><i class="icon-check" data-feather="check-circle"></i> Presence of existing assets or savings</li>
         </ul>
     </section>
 
-    <!-- Section 4: FAQ -->
-    <section style="margin-top: 40px;">
+    <!-- SECTION 4: FAQ -->
+    <section class="flashy-section reveal delay-1">
         <h2>Frequently Asked Questions</h2>
 
-        <details>
-            <summary><strong>Is life insurance necessary if I’m single?</strong></summary>
-            <p>Yes, especially if you have dependents, debt, or wish to leave a legacy. It can also cover final expenses or protect co-signers.</p>
-        </details>
+        <div class="faq-flashy">
+            <details>
+                <summary>
+                    <i class="icon-chevron" data-feather="chevron-right"></i>
+                    <strong>Is life insurance necessary if I’m single?</strong>
+                </summary>
+                <p>Yes, especially if you have dependents, debt, or wish to leave a legacy. It can also cover final expenses or protect co-signers.</p>
+            </details>
 
-        <details>
-            <summary><strong>What happens if I stop paying my premiums?</strong></summary>
-            <p>For term policies, coverage lapses. For whole life, the policy may draw from cash value until exhausted.</p>
-        </details>
+            <details>
+                <summary>
+                    <i class="icon-chevron" data-feather="chevron-right"></i>
+                    <strong>What happens if I stop paying my premiums?</strong>
+                </summary>
+                <p>For term policies, coverage lapses. For whole life, the policy may draw from cash value until exhausted.</p>
+            </details>
 
-        <details>
-            <summary><strong>Can I change my policy later?</strong></summary>
-            <p>Yes, you can convert or adjust coverage, but terms depend on your insurer and the policy type.</p>
-        </details>
+            <details>
+                <summary>
+                    <i class="icon-chevron" data-feather="chevron-right"></i>
+                    <strong>Can I change my policy later?</strong>
+                </summary>
+                <p>Yes, you can convert or adjust coverage, but terms depend on your insurer and the policy type.</p>
+            </details>
+        </div>
 
-        <p style="font-size: 0.9rem; color: var(--muted);">
+        <p class="source-note">
             Source: <a href="https://www.insurance.ca.gov/" target="_blank">California Department of Insurance</a>
         </p>
     </section>
 
-    <!-- Section 5: Call to Action -->
-    <section class="cta" style="margin-top: 60px; text-align: center;">
+    <!-- SECTION 5: CTA -->
+    <section class="flashy-section reveal delay-2" style="text-align: center;">
         <h2>Ready to Take the Next Step?</h2>
         <p>Our team at <strong>V & V Brothers LLC</strong> can help you understand your options and find coverage that fits your goals.</p>
-        <a href="/pages/contact.html" class="btn-primary">Request Free Consultation</a>
+        <a href="/pages/contact.html" class="btn-flashy">Request Free Consultation</a>
     </section>
+
 </main>
 
 <div id="site-footer"></div>
@@ -166,5 +184,22 @@
 <!-- Core Scripts -->
 <script type="module" src="/assets/js/core.js" defer></script>
 <script type="module" src="/assets/js/pages/services.js" defer></script>
+<!-- Initialize Feather Icons -->
+<script>
+    feather.replace();
+</script>
+
+<!-- Scroll Reveal -->
+<script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

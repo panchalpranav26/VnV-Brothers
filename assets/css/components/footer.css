@@ -18,7 +18,7 @@
 }
 
 .footer-grid h5 {
-    font-family: var(--font-serif);
+    font-family: var(--font-serif), serif;
     margin: 0 0 8px;
 }
 
@@ -40,4 +40,65 @@
     .footer-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.footer-list,
+.footer-list ul,
+.footer-list ol {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-list li {
+    position: relative;
+    transition: all var(--anim-fast) ease;
+    display: flex;
+    align-items: center;
+}
+
+.footer-list ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--teal-400);
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.footer-list ol {
+    counter-reset: list-item;
+}
+
+.footer-list ol li {
+    counter-increment: list-item;
+}
+
+.footer-list ol li::before {
+    content: counter(list-item) '.';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: var(--teal-400);
+}
+
+.footer-list li:hover {
+    transform: translateX(8px);
+    color:
+            var(--teal-400);
+}
+
+.site-footer-clr {
+    margin: 0;
+    color: var(--fg);
+    font-size: var(--fs-base);
+    line-height: var(--lh-base);
+    background:
+        /* Teal glow on top-right */
+            radial-gradient(rgba(20, 150, 130, 0.45) 0%, transparent 65%),
+
+                /* Navy glow on top-left */
+            radial-gradient(rgba(15, 45, 75, 0.55) 0%, transparent 70%),
+
+                /* Base vertical gradient: TOP navy → BOTTOM gray */
+            linear-gradient(180deg, var(--navy-800) 0%, var(--gray-600) 45%, var(--gray-300) 100%);
 }

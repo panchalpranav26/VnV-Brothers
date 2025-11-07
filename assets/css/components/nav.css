@@ -1,13 +1,16 @@
 /*
  * FILE: assets/css/components/nav.css
- * ROLE: Styles for the sticky header, brand logo, desktop navigation menu, and CTA button.
- * HOW TO MODIFY: Adjust header height (--nav-h), blur effect, and link hover styles.
- * EXTENSION POINTS: Add new navigation link types or modify the mega/mini menu pane appearance.
+ * ROLE: Navigation bar styling (header, brand, desktop nav, CTA)
+ * DESIGN SYSTEM: Follows core.css tokens (master source of truth)
+ * COMPAT: Matches updated dropdown-pane.css (.dropdown-pane + Soft Glass)
+ * UX:
+ *   - Desktop: Hover interactions
+ *   - Mobile: JS handles menu toggle (no mobile CSS here)
  */
 
 /* ============================================================
-   4) COMPONENT: Header & Brand
-   - Sticky header with blurred background
+   HEADER: Sticky Top Navigation Bar
+   - Soft Glass + Surface Hybrid (aligned with dropdown design)
    ============================================================ */
 
 .header {
@@ -15,142 +18,210 @@
     top: 0;
     z-index: var(--z-header);
     height: var(--nav-h);
-    backdrop-filter: blur(10px);
-    /* Fallback + modern */
-    background: rgba(11, 27, 42, 0.82);
-    background: color-mix(in srgb, var(--navy-900) 82%, transparent);
+
+    /* Hybrid Soft-Glass Background (Same design language as dropdown-pane) */
+    background:
+            linear-gradient(180deg,
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.02)
+            ),
+            var(--surface-alt);
+
+    backdrop-filter: blur(8px); /* Slightly softer than dropdown-pane for comfort */
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: flex-end; /* bottom-align children */
 }
 
+/* Container for brand + menu + CTA */
 .nav {
     display: flex;
-    align-items: center;
+    align-items: flex-end; /* keeps everything bottom-aligned */
     justify-content: space-between;
     height: var(--nav-h);
+    padding-inline: var(--pad-x)
 }
+
+
+/* ============================================================
+   BRANDING
+   ============================================================ */
 
 .brand {
     display: flex;
-    align-items: baseline;
-    gap: 12px;
+    align-items: center;
     color: inherit;
+    text-decoration: none;
+    align-self: center;
 }
 
 .brand__logo {
     width: 34px;
     height: 34px;
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
+
+    /* Uses teal brand gradient from core tokens */
     background: linear-gradient(135deg, var(--teal-500), var(--teal-400));
     box-shadow:
-            inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.35),
             0 6px 16px rgba(20, 184, 166, 0.45);
 }
 
 .brand__name {
     font-family: var(--font-serif), serif;
-    font-size: 1.2rem;
+    font-size: 18px;
     letter-spacing: 0.2px;
     font-weight: 600;
 }
 
 
 /* ============================================================
-   5) COMPONENT: Desktop Navigation
-   - HL3-S underline + hover/focus states
+   DESKTOP NAVIGATION (Top-Level Links)
    ============================================================ */
 
 .menu {
     display: flex;
     gap: 8px;
-    align-items: center;
+    align-items: flex-end;
 }
+
 .menu > li {
     position: relative;
     list-style: none;
 }
 
+/* Top-level nav link style */
 .link {
     position: relative;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 10px 12px;
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
     color: var(--fg);
     font-weight: 600;
-    transition: background var(--anim-fast) ease;
+    text-decoration: none;
+    transition: background var(--anim-fast) ease, color var(--anim-fast) ease;
 }
+
+/* Soft hover (token-consistent with dropdown hover) */
 .link:hover,
 .link:focus-visible {
     background: rgba(255, 255, 255, 0.06);
     outline: none;
 }
 
-/* HL3-S: subtle underline (left → right for top-level nav links) */
+/* Accessible focus ring for keyboard users */
+.link:focus-visible {
+    box-shadow: 0 0 0 2px var(--underline);
+}
+
+/* CURRENT PAGE (active nav item) */
+.link.is-active {
+    color: var(--white);
+}
+.link.is-active::after {
+    transform: scaleX(1);
+}
+
+
+/* ============================================================
+   HL3-S UNDERLINE (Top-Level Links)
+   - Same underline style used inside dropdown-pane
+   ============================================================ */
+
 .menu > li > .link::after,
-.menu > li.has-pane .parent-with-caret > .link::after {
+.menu > li.nav-item--has-dropdown > .parent-with-caret > .link::after {
     content: "";
     position: absolute;
     left: 12px;
     right: 12px;
     bottom: 6px;
     height: var(--underline-h);
-    background: linear-gradient(90deg, transparent 0%, var(--underline) 18%, var(--underline) 82%, transparent 100%);
+    background: linear-gradient(
+            90deg,
+            transparent 0%,
+            var(--underline) 18%,
+            var(--underline) 82%,
+            transparent 100%
+    );
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform var(--anim-med) ease;
     border-radius: 2px;
     pointer-events: none;
+    display: flex;
+    align-items: flex-end;
 }
 
-/* Desktop only */
+/* Desktop-only hover animations */
 @media (min-width: 981px) {
 
-    /* Normal hover underline (Home, Contact, direct links) */
+    /* Normal hover underline (for direct links) */
     .menu > li:hover > .link::after,
     .menu > li > .link:focus-visible::after {
         transform: scaleX(1);
     }
 
-    /* Hover underline for items wrapped in .parent-with-caret */
-    .menu > li.has-pane:hover .parent-with-caret > .link::after {
+    /* Hover underline for dropdown parents */
+    .menu > li.nav-item--has-dropdown:hover .parent-with-caret > .link::after {
         transform: scaleX(1);
     }
 
-    /* Background highlight consistency for dropdown parents */
-    .menu > li.has-pane:hover .parent-with-caret > .link {
+    /* Highlight dropdown parent when hovered */
+    .menu > li.nav-item--has-dropdown:hover .parent-with-caret > .link {
         background: rgba(255, 255, 255, 0.06);
     }
 }
 
+
+/* ============================================================
+   CARET (for items that open dropdowns on mobile)
+   ============================================================ */
 
 .caret {
     inline-size: 10px;
     block-size: 10px;
     display: inline-block;
 }
+
 .caret svg {
     transform: translateY(1px);
     opacity: 0.9;
 }
 
-/* CTA */
+
+/* ============================================================
+   CTA BUTTON (Consistent with Brand Tokens)
+   ============================================================ */
+
 .cta {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     padding: 10px 14px;
+
     border-radius: 999px;
     color: var(--navy-900);
+
+    /* Teal gradient CTA – approved brand style */
     background: linear-gradient(135deg, var(--teal-400), var(--teal-500));
+
     font-weight: 700;
+    text-decoration: none;
+
     box-shadow: var(--shadow-1);
     border: 1px solid rgba(255, 255, 255, 0.35);
+
     transition:
             transform var(--anim-fast) ease,
             box-shadow var(--anim-fast) ease;
 }
+
 .cta:hover {
     transform: translateY(-1px);
     box-shadow: var(--shadow-2);
 }
+
+
+

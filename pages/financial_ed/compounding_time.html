@@ -15,6 +15,11 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/style.css" />
 
+  <!-- Feather Icons CDN -->
+
+
+  <!-- Flashy Enhancements (Non-conflicting) -->
+
   <!-- Open Graph -->
   <meta property="og:title" content="Compounding & Time – V & V Brothers LLC" />
   <meta property="og:description" content="Understand how time magnifies the power of compounding to help you build long-term wealth." />
@@ -48,24 +53,35 @@
 <div id="site-header"></div>
 
 <main class="wrap">
-  <h1 class="page-title">Compounding & Time</h1>
-  <p class="lead">
-    Compounding is the process where your money earns returns — and those returns then earn returns of their own.
-    Over time, this snowball effect accelerates your wealth growth.
-  </p>
-  <p style="font-size:0.9rem;color:var(--muted);">
+
+  <!-- HERO -->
+  <header class="page-hero reveal">
+    <h1 class="page-title">Compounding & Time</h1>
+    <p class="lead">
+      Compounding is the process where your money earns returns — and those returns then earn returns of their own.
+      Over time, this snowball effect accelerates your wealth growth.
+    </p>
+  </header>
+
+  <p class="sources reveal delay-2">
     Source:
-    <a href="https://www.investor.gov/introduction-investing/investing-basics/compound-interest" target="_blank" rel="noopener">U.S. Securities and Exchange Commission (SEC)</a>,
-    <a href="https://www.finra.org/investors/learn-to-invest/advanced-investing/compounding" target="_blank" rel="noopener">FINRA</a>,
-    <a href="https://www.fdic.gov/resources/money-smart/teach/" target="_blank" rel="noopener">FDIC Money Smart</a>
+    <a href="https://www.investor.gov/introduction-investing/investing-basics/compound-interest" target="_blank" rel="noopener">
+      U.S. SEC <i data-feather="external-link" class="icon"></i>
+    </a>,
+    <a href="https://www.finra.org/investors/learn-to-invest/advanced-investing/compounding" target="_blank" rel="noopener">
+      FINRA <i data-feather="external-link" class="icon"></i>
+    </a>,
+    <a href="https://www.fdic.gov/resources/money-smart/teach/" target="_blank" rel="noopener">
+      FDIC Money Smart <i data-feather="external-link" class="icon"></i>
+    </a>
   </p>
 
-  <!-- Concept Section -->
-  <section style="margin-top:40px;">
-    <h2>Why Compounding Matters</h2>
+  <!-- Why Compounding Matters -->
+  <section class="section-flashy reveal delay-1">
+    <h2><i data-feather="trending-up" class="icon"></i> Why Compounding Matters</h2>
     <p>Compounding rewards consistency. Even small, regular investments can grow significantly if you give them enough time. The earlier you start, the more your earnings multiply.</p>
 
-    <table class="data-table" style="margin-top:20px;">
+    <table class="table-glass">
       <thead>
       <tr>
         <th>Starting Age</th>
@@ -76,38 +92,39 @@
       </tr>
       </thead>
       <tbody>
-      <tr><td>25</td><td>$200</td><td>40</td><td>7%</td><td>$479,932</td></tr>
-      <tr><td>35</td><td>$200</td><td>30</td><td>7%</td><td>$227,479</td></tr>
-      <tr><td>45</td><td>$200</td><td>20</td><td>7%</td><td>$103,674</td></tr>
+      <tr class="reveal delay-1"><td>25</td><td>$200</td><td>40</td><td>7%</td><td>$479,932</td></tr>
+      <tr class="reveal delay-2"><td>35</td><td>$200</td><td>30</td><td>7%</td><td>$227,479</td></tr>
+      <tr class="reveal delay-3"><td>45</td><td>$200</td><td>20</td><td>7%</td><td>$103,674</td></tr>
       </tbody>
     </table>
 
-    <p style="font-size:0.9rem;color:var(--muted);margin-top:10px;">*Assumes monthly compounding and consistent contributions.</p>
+    <p class="table-note">*Assumes monthly compounding and consistent contributions.</p>
   </section>
 
   <!-- Interactive Calculator -->
-  <section style="margin-top:60px;">
-    <h2>Interactive Compound Interest Calculator</h2>
+  <section class="section-flashy reveal delay-2">
+    <h2><i data-feather="calculator" class="icon"></i> Interactive Compound Interest Calculator</h2>
     <p>Experiment with the power of time. Adjust your initial amount, rate, and years to see how your investment grows.</p>
 
-    <div class="calculator" style="max-width:500px;margin-top:20px;">
-      <label>Initial Amount ($): <input type="number" id="principal" value="1000" /></label><br/>
-      <label>Annual Interest Rate (%): <input type="number" id="rate" value="5" step="0.1" /></label><br/>
-      <label>Years: <input type="number" id="years" value="10" /></label><br/>
-      <label>Compounds per Year: <input type="number" id="compound" value="12" /></label><br/>
-      <button id="calc-btn" class="btn-primary" style="margin-top:10px;">Calculate</button>
-      <p id="result" style="margin-top:10px;font-weight:600;"></p>
+    <div class="calc-glass">
+      <label>Initial Amount ($): <input type="number" id="principal" value="1000" /></label>
+      <label>Annual Interest Rate (%): <input type="number" id="rate" value="5" step="0.1" /></label>
+      <label>Years: <input type="number" id="years" value="10" /></label>
+      <label>Compounds per Year: <input type="number" id="compound" value="12" /></label>
+      <button id="calc-btn" class="btn-glow">Calculate</button>
+      <p id="result"></p>
     </div>
   </section>
 
-  <!-- Educational Insight -->
-  <section style="margin-top:60px;">
-    <h2>The Time Advantage</h2>
+  <!-- The Time Advantage -->
+  <section class="section-flashy reveal delay-3">
+    <h2><i data-feather="clock" class="icon"></i> The Time Advantage</h2>
     <p>
       Time amplifies compounding because growth builds on growth. Waiting even a few years to start can dramatically
       reduce your final amount. That’s why we at V & V Brothers LLC emphasize starting small but starting early.
     </p>
-    <blockquote style="border-left:4px solid var(--accent);padding-left:12px;color:var(--muted);margin-top:20px;">
+
+    <blockquote class="quote-card">
       “Compound interest is the eighth wonder of the world. He who understands it, earns it; he who doesn’t, pays it.” — Albert Einstein
     </blockquote>
   </section>
@@ -119,18 +136,5 @@
 <script type="module" src="/assets/js/core.js" defer></script>
 <script type="module" src="/assets/js/pages/financial_ed.js" defer></script>
 
-<!-- Page Script -->
-<script>
-  document.getElementById("calc-btn").addEventListener("click", function() {
-    const P = parseFloat(document.getElementById("principal").value);
-    const r = parseFloat(document.getElementById("rate").value) / 100;
-    const t = parseFloat(document.getElementById("years").value);
-    const n = parseFloat(document.getElementById("compound").value);
-
-    const A = P * Math.pow(1 + r / n, n * t);
-    const result = document.getElementById("result");
-    result.textContent = "Future Value: $" + A.toFixed(2).toLocaleString();
-  });
-</script>
 </body>
 </html>
