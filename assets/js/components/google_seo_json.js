@@ -6,7 +6,7 @@ export function addJSONLDSchema({
                                     pageDescription,
                                     pageUrl,
                                     keywords = [],
-                                    businessName = "V & V Brothers LLC",
+                                    businessName = "V & V Advisors LLC",
                                     city = "Tracy",
                                     state = "CA",
                                     country = "US"
@@ -51,13 +51,13 @@ window.addEventListener("DOMContentLoaded", () => {
         pageTitle: document.title,
         pageDescription:
             document.querySelector('meta[name="description"]')?.content ||
-            "Learn financial foundations and strategies with V & V Brothers.",
+            "Learn financial foundations and strategies with V & V Advisors.",
         keywords: [
             "financial education",
             "budgeting",
             "wealth building",
             "life insurance",
-            "V & V Brothers"
+            "V & V Advisors"
         ]
     });
 });

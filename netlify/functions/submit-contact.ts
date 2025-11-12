@@ -30,17 +30,17 @@ const ADMIN_EMAILS = (BREVO_TO_EMAIL || "")
 
 // ---- Brand constants (BC1 palette) ----
 const BRAND = {
-    nameFrom: "V&V Brothers Team",
+    nameFrom: "V&V Global Team",
     primaryNavy: "#0A2A43",
     accentTeal: "#0DB2AF",
     bgLight: "#F5F7FA",
     textDark: "#1A1A1A",
-    logoUrl: "https://via.placeholder.com/180x60?text=VnV+Brothers+LLC",
+    logoUrl: "https://via.placeholder.com/180x60?text=VnV+Global+LLC",
     calendly: "https://calendly.com/your-link",
     footerLines: [
-        "V&V Brothers LLC — Empowering families through financial literacy.",
-        "© 2025 V&V Brothers LLC. All rights reserved.",
-        "This email was sent by V&V Brothers LLC in response to your inquiry.",
+        "V&V Global LLC — Empowering families through financial literacy.",
+        "© 2025 V&V Global LLC. All rights reserved.",
+        "This email was sent by V&V Global LLC in response to your inquiry.",
     ],
 };
 
@@ -97,7 +97,7 @@ export const handler: Handler = async (event) => {
         // ---------------------------
         const adminEmailPayload = {
             sender: { name: BRAND.nameFrom, email: BREVO_FROM_EMAIL },
-            to: ADMIN_EMAILS.map(email => ({ email, name: "V&V Brothers Admin" })),
+            to: ADMIN_EMAILS.map(email => ({ email, name: "V&V Global Admin" })),
             replyTo: { email: data.email, name: data.name },
             subject: `New Contact Form Submission — ${data.name}`,
             htmlContent: `
@@ -121,7 +121,7 @@ export const handler: Handler = async (event) => {
           ${escapeHtml(data.message)}
         </div>
         <p style="font-family:Arial,Helvetica,sans-serif;margin-top:16px;color:#6b7280;">
-          Submitted via V&V Brothers LLC website.
+          Submitted via V&V Global LLC website.
         </p>
       `,
             textContent: `
@@ -135,7 +135,7 @@ Topic: ${data.topic}
 Message:
 ${data.message}
 
-Submitted via V&V Brothers LLC website.
+Submitted via V&V Global LLC website.
       `,
         };
 
@@ -178,12 +178,12 @@ Submitted via V&V Brothers LLC website.
         const userEmailPayload = {
             sender: { name: BRAND.nameFrom, email: BREVO_FROM_EMAIL },
             to: [{ email: data.email, name: data.name }],
-            subject: "Thanks for contacting V&V Brothers — We received your message",
+            subject: "Thanks for contacting V&V Global — We received your message",
             htmlContent: userHtml,
             textContent: `
 Hi ${data.name},
 
-Thank you for reaching out to V&V Brothers LLC. We’ve received your message and will be in touch shortly.
+Thank you for reaching out to V&V Global LLC. We’ve received your message and will be in touch shortly.
 
 Topic: ${data.topic}
 
@@ -261,7 +261,7 @@ function brandedUserHtml(opts: {
         <table role="presentation" cellpadding="0" cellspacing="0" width="560" style="background:#ffffff;border-radius:10px;overflow:hidden;border:1px solid #e5e7eb;">
           <tr>
             <td style="background:${primaryNavy};padding:20px 24px;" align="left">
-              <img src="${logoUrl}" width="180" height="60" alt="V&V Brothers LLC" style="display:block;border:0;outline:none;text-decoration:none;">
+              <img src="${logoUrl}" width="180" height="60" alt="V&V Global LLC" style="display:block;border:0;outline:none;text-decoration:none;">
             </td>
           </tr>
 
@@ -271,7 +271,7 @@ function brandedUserHtml(opts: {
                 Thanks for reaching out, ${escapeHtml(name)}!
               </h1>
               <p style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;color:${textDark};font-size:14px;line-height:1.6;">
-                We’ve received your message and a member of the V&V Brothers Team will contact you shortly.
+                We’ve received your message and a member of the V&V Global Team will contact you shortly.
               </p>
 
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:12px 0 16px 0;">

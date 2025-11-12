@@ -1,6 +1,6 @@
-# 🏦 V & V Brothers LLC: Multi-Page Static Site
+# 🏦 V & V Advisors LLC: Multi-Page Static Site
 
-This project implements the multi-page static website for **V & V Brothers LLC**, featuring modular HTML/CSS/JS architecture, SEO-optimized metadata, and Netlify serverless functions for contact and consultation form submissions.
+This project implements the multi-page static website for **V & V Advisors LLC**, featuring modular HTML/CSS/JS architecture, SEO-optimized metadata, and Netlify serverless functions for contact and consultation form submissions.
 
 ---
 
@@ -86,7 +86,7 @@ Redirects in netlify.toml map /api/* → /.netlify/functions/*.
 
 CORS and security headers are already configured.
 
-© 2025 V & V Brothers LLC
+© 2025 V & V Advisors LLC
 Empowering families with financial literacy, protection, and sustainable wealth.
 
 yaml

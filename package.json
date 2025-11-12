@@ -1,7 +1,7 @@
 {
   "name": "vnv-brothers-site",
   "version": "1.0.0",
-  "description": "Static website for VnV Brothers LLC with Netlify Functions for form submissions.",
+  "description": "Static website for VnV Advisors LLC with Netlify Functions for form submissions.",
   "scripts": {
     "dev": "netlify dev",
     "deploy": "netlify deploy --prod"

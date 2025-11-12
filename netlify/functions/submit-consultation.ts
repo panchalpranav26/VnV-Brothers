@@ -73,7 +73,7 @@ export const handler: Handler = async (event) => {
 
 
         const footerLines = [
-            "V & V Brothers LLC — Financial Education & Protection",
+            "V & V Advisors LLC — Financial Education & Protection",
             "Empowering families for generational growth.",
             "Tracy, CA • contact@vnvbrothers.com • vnvbrothers.com"
         ];
@@ -90,7 +90,7 @@ export const handler: Handler = async (event) => {
         const userText = [
             `Hi ${data.name},`,
             ``,
-            `Thank you for requesting a consultation with V & V Brothers LLC.`,
+            `Thank you for requesting a consultation with V & V Advisors LLC.`,
             `Session Type: ${data.topic}`,
             ``,
             `Your message:`,
@@ -98,7 +98,7 @@ export const handler: Handler = async (event) => {
             ``,
             `A member of our advisory team will reach out shortly.`,
             ``,
-            `— V & V Brothers LLC`,
+            `— V & V Advisors LLC`,
             `Financial Education & Protection`,
             `Tracy, CA • contact@vnvbrothers.com • vnvbrothers.com`,
         ].join("\n");
@@ -106,7 +106,7 @@ export const handler: Handler = async (event) => {
 
         // ---------------- EMAIL to ADMIN ----------------
         const adminPayload = {
-            sender: { name: "V&V Brothers Website", email: BREVO_FROM_EMAIL },
+            sender: { name: "V&V Global Website", email: BREVO_FROM_EMAIL },
             to: adminEmails,
             replyTo: { email: data.email, name: data.name },
             subject: `New Consultation Request — ${data.name}`,
@@ -139,7 +139,7 @@ export const handler: Handler = async (event) => {
         // ---------------- EMAIL to USER ----------------
 // ---------------- EMAIL to USER ----------------
         const userPayload = {
-            sender: { name: "V&V Brothers LLC", email: BREVO_FROM_EMAIL },
+            sender: { name: "V&V Global LLC", email: BREVO_FROM_EMAIL },
             to: [{ email: data.email, name: data.name }],
             subject: "We Received Your Consultation Request ✅",
             htmlContent: userHtml,
@@ -217,7 +217,7 @@ export function brandedConsultationUserHtml(opts: {
           <tr>
             <td style="background:${primaryNavy};padding:22px 24px;text-align:center;">
               <div style="font-family:Arial,Helvetica,sans-serif;font-weight:700;color:#ffffff;font-size:18px;letter-spacing:0.5px;">
-                V &amp; V Brothers LLC
+                V &amp; V Global LLC
               </div>
             </td>
           </tr>
@@ -229,7 +229,7 @@ export function brandedConsultationUserHtml(opts: {
                 Thank you for your consultation request, ${escapeHtml(name)}.
               </h1>
               <p style="margin:0 0 12px 0;font-family:Arial,Helvetica,sans-serif;color:${textDark};font-size:14px;line-height:1.6;">
-                We’ve received your request and a member of the <strong>V &amp; V Brothers</strong> advisory team will review your details and reach out shortly.
+                We’ve received your request and a member of the <strong>V &amp; V Global</strong> advisory team will review your details and reach out shortly.
               </p>
               <p style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;color:${textDark};font-size:14px;line-height:1.6;">
                 Our mission is to empower families with financial literacy, protection, and wealth-building strategies—one step at a time.
@@ -266,7 +266,7 @@ export function brandedConsultationUserHtml(opts: {
               </p>
               <div style="height:2px;width:100%;background:${accentTeal};opacity:0.15;border-radius:2px;"></div>
               <p style="margin:6px 0 0 0;font-family:Arial,Helvetica,sans-serif;color:#6b7280;font-size:11px;line-height:1.6;">
-                © ${new Date().getFullYear()} V &amp; V Brothers LLC. All rights reserved.
+                © ${new Date().getFullYear()} V &amp; V Global LLC. All rights reserved.
               </p>
             </td>
           </tr>
